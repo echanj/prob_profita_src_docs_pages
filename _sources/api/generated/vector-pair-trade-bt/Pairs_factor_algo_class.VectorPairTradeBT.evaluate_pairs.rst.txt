@@ -1,0 +1,6 @@
+﻿Pairs\_factor\_algo\_class.VectorPairTradeBT.evaluate\_pairs
+============================================================
+
+.. currentmodule:: Pairs_factor_algo_class
+
+.. automethod:: VectorPairTradeBT.evaluate_pairs

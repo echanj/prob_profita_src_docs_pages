@@ -1,0 +1,6 @@
+﻿Trend\_Following\_Class.TrendFollower.use\_classifier\_get\_prob\_profita
+=========================================================================
+
+.. currentmodule:: Trend_Following_Class
+
+.. automethod:: TrendFollower.use_classifier_get_prob_profita

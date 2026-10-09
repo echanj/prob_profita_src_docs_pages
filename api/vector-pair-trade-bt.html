@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>VectorPairTradeBT &#8212; Prob_Profita</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/vector-pair-trade-bt';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pairs_factor_algo_class.VectorPairTradeBT.preprocess_data" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.preprocess_data.html" />
+    <link rel="prev" title="Single_algo_Class.SingleBNBTrader.run" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.run.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Prob_Profita</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="single-bnb-trader.html">SingleBNBTrader</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.preprocess_data.html">Single_algo_Class.SingleBNBTrader.preprocess_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.preprocess_volumes.html">Single_algo_Class.SingleBNBTrader.preprocess_volumes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.pca_transform.html">Single_algo_Class.SingleBNBTrader.pca_transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.train_model.html">Single_algo_Class.SingleBNBTrader.train_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_instruments.html">Single_algo_Class.SingleBNBTrader.evaluate_instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.generate_positions.html">Single_algo_Class.SingleBNBTrader.generate_positions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.preprocess_forward_data.html">Single_algo_Class.SingleBNBTrader.preprocess_forward_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.generate_Buy_Hold_benchmark.html">Single_algo_Class.SingleBNBTrader.generate_Buy_Hold_benchmark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.run_gs_and_eval.html">Single_algo_Class.SingleBNBTrader.run_gs_and_eval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.run_gs_forward_degradation.html">Single_algo_Class.SingleBNBTrader.run_gs_forward_degradation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.run_init_forward_degradation.html">Single_algo_Class.SingleBNBTrader.run_init_forward_degradation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.gen_kelly_factor_table.html">Single_algo_Class.SingleBNBTrader.gen_kelly_factor_table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.update_zscore_metrics.html">Single_algo_Class.SingleBNBTrader.update_zscore_metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_forward_date_ranges.html">Single_algo_Class.SingleBNBTrader.get_forward_date_ranges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.generate_forward_trading_signals.html">Single_algo_Class.SingleBNBTrader.generate_forward_trading_signals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_forward_trading_signals.html">Single_algo_Class.SingleBNBTrader.evaluate_forward_trading_signals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_position_table.html">Single_algo_Class.SingleBNBTrader.evaluate_position_table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_extended_portfolio_metrics.html">Single_algo_Class.SingleBNBTrader.evaluate_extended_portfolio_metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.plot.html">Single_algo_Class.SingleBNBTrader.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.save.html">Single_algo_Class.SingleBNBTrader.save</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.load.html">Single_algo_Class.SingleBNBTrader.load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_backtest_date_info.html">Single_algo_Class.SingleBNBTrader.get_backtest_date_info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.update_best_res_positions_using_subset.html">Single_algo_Class.SingleBNBTrader.update_best_res_positions_using_subset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.process_model_at_timestep.html">Single_algo_Class.SingleBNBTrader.process_model_at_timestep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.reoptimize_trading_params.html">Single_algo_Class.SingleBNBTrader.reoptimize_trading_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_simulated_profit_metrics.html">Single_algo_Class.SingleBNBTrader.get_simulated_profit_metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_profits_per_trade.html">Single_algo_Class.SingleBNBTrader.get_profits_per_trade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.use_classifier_get_prob_profita.html">Single_algo_Class.SingleBNBTrader.use_classifier_get_prob_profita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.plot_prob_profita_model_coefs.html">Single_algo_Class.SingleBNBTrader.plot_prob_profita_model_coefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.print_some_trader_settings.html">Single_algo_Class.SingleBNBTrader.print_some_trader_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.diversify_best_res.html">Single_algo_Class.SingleBNBTrader.diversify_best_res</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.aggregate_deg_stats.html">Single_algo_Class.SingleBNBTrader.aggregate_deg_stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.degradation_analysis_and_filter.html">Single_algo_Class.SingleBNBTrader.degradation_analysis_and_filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.calc_gs_kldro_for_optima.html">Single_algo_Class.SingleBNBTrader.calc_gs_kldro_for_optima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.plot_grid_search_surfaces.html">Single_algo_Class.SingleBNBTrader.plot_grid_search_surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.run.html">Single_algo_Class.SingleBNBTrader.run</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">VectorPairTradeBT</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.preprocess_data.html">Pairs_factor_algo_class.VectorPairTradeBT.preprocess_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.pca_transform.html">Pairs_factor_algo_class.VectorPairTradeBT.pca_transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.train_model.html">Pairs_factor_algo_class.VectorPairTradeBT.train_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.evaluate_pairs.html">Pairs_factor_algo_class.VectorPairTradeBT.evaluate_pairs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_ou_params.html">Pairs_factor_algo_class.VectorPairTradeBT.get_ou_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.generate_positions.html">Pairs_factor_algo_class.VectorPairTradeBT.generate_positions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.preprocess_forward_data.html">Pairs_factor_algo_class.VectorPairTradeBT.preprocess_forward_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.gen_kelly_factor_table.html">Pairs_factor_algo_class.VectorPairTradeBT.gen_kelly_factor_table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_hurst_from_zscore.html">Pairs_factor_algo_class.VectorPairTradeBT.get_hurst_from_zscore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.generate_forward_trading_signals.html">Pairs_factor_algo_class.VectorPairTradeBT.generate_forward_trading_signals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.evaluate_position_table.html">Pairs_factor_algo_class.VectorPairTradeBT.evaluate_position_table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.plot.html">Pairs_factor_algo_class.VectorPairTradeBT.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.save.html">Pairs_factor_algo_class.VectorPairTradeBT.save</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.load.html">Pairs_factor_algo_class.VectorPairTradeBT.load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_backtest_date_info.html">Pairs_factor_algo_class.VectorPairTradeBT.get_backtest_date_info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.update_best_res_positions_using_subset.html">Pairs_factor_algo_class.VectorPairTradeBT.update_best_res_positions_using_subset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.process_model_at_timestep.html">Pairs_factor_algo_class.VectorPairTradeBT.process_model_at_timestep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.reoptimize_trading_params.html">Pairs_factor_algo_class.VectorPairTradeBT.reoptimize_trading_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.fix_ema_ratio_and_vol_adjust.html">Pairs_factor_algo_class.VectorPairTradeBT.fix_ema_ratio_and_vol_adjust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_simulated_profit_metrics.html">Pairs_factor_algo_class.VectorPairTradeBT.get_simulated_profit_metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_profits_per_trade.html">Pairs_factor_algo_class.VectorPairTradeBT.get_profits_per_trade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.use_classifier_get_prob_profita.html">Pairs_factor_algo_class.VectorPairTradeBT.use_classifier_get_prob_profita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.plot_prob_profita_model_coefs.html">Pairs_factor_algo_class.VectorPairTradeBT.plot_prob_profita_model_coefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.run.html">Pairs_factor_algo_class.VectorPairTradeBT.run</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="trend-follower.html">TrendFollower</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.get_profits_per_trade.html">Trend_Following_Class.TrendFollower.get_profits_per_trade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.use_classifier_get_prob_profita.html">Trend_Following_Class.TrendFollower.use_classifier_get_prob_profita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.plot_prob_profita_model_coefs.html">Trend_Following_Class.TrendFollower.plot_prob_profita_model_coefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.generate_forward_trading_signals_tf.html">Trend_Following_Class.TrendFollower.generate_forward_trading_signals_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.run_gs_and_eval_tf.html">Trend_Following_Class.TrendFollower.run_gs_and_eval_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.run_gs_forward_degradation_tf.html">Trend_Following_Class.TrendFollower.run_gs_forward_degradation_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.run_init_forward_degradation_tf.html">Trend_Following_Class.TrendFollower.run_init_forward_degradation_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.update_best_res_positions_using_subset_tf.html">Trend_Following_Class.TrendFollower.update_best_res_positions_using_subset_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.calc_gs_kldro_for_optima_tf.html">Trend_Following_Class.TrendFollower.calc_gs_kldro_for_optima_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.run_trend_follower.html">Trend_Following_Class.TrendFollower.run_trend_follower</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="generated/Single_algo_Class.html">Single_algo_Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/Pairs_factor_algo_class.html">Pairs_factor_algo_class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/Trend_Following_Class.html">Trend_Following_Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/CPO_functions.CPO_functions.html">CPO_functions.CPO_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/CPO_functions.utility_functions.html">CPO_functions.utility_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/CPO_functions.indicator_functions.html">CPO_functions.indicator_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/CPO_functions.extended_backtest_functions.html">CPO_functions.extended_backtest_functions</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">API reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">VectorPairTradeBT</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="vectorpairtradebt">
+<h1>VectorPairTradeBT<a class="headerlink" href="#vectorpairtradebt" title="Link to this heading">#</a></h1>
+<p>Pair-trading screener and backtest engine. The instance is configured with a
+price DataFrame and screening, signal, and optimization options. Its
+<code class="docutils literal notranslate"><span class="pre">positionsTable</span></code> stores the generated portfolio positions.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Pairs_factor_algo_class.VectorPairTradeBT">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">Pairs_factor_algo_class.</span></span><span class="sig-name descname"><span class="pre">VectorPairTradeBT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lookback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">252</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_factors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_penu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">penu_filter_thresh_m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signal_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signal_freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'B'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_halflife</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hlw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hl_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">past_n_periods</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hedge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_exp_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'legacy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_exp_type_ee</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'entry_exit'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">droplist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_isna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_zeroR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hurst_lags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kpss_lags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_span_before_PCA</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_pc1_explained_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_top_ranking</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PC1_sorted_labels_rank_lowest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_covariance_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filt_str1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'profit1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filt_str2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'profit1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_by0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'p-value'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_by0_ascend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filt_by1_ascend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_opt_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'profit_pair'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_grid_search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_grid_opt_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sharpe'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt_entry_exit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inital_ou_sim_enable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_OU_sim_ngs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">59</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OU_sim_mix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score_coef</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score_by1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc_adv_score</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_clf_prob</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coint_test_p_thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coint_test_wof1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coint_test_wof2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">focus_symbol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_skew</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gs_all_inital_pairs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mix_proxy_for_opt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profit_metrics_with_factors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_factor_model_for_gs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_ratios_1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_ratios_gs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_ratios_signal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_hedge_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kelly_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kelly_use_covar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kelly_use_sign</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kelly_use_pair</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_volit_adj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volit_adj_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bt_trading_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluation_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_stride</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu_masking_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_masking_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntrades_sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R2_adj_masking_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Phi0_SE_masking_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Phi1_SE_masking_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pairs_factor_algo_class.VectorPairTradeBT" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">#</a></h2>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pairs_factor_algo_class.VectorPairTradeBT.df">
+<span class="sig-prename descclassname"><span class="pre">VectorPairTradeBT.</span></span><span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#Pairs_factor_algo_class.VectorPairTradeBT.df" title="Link to this definition">#</a></dt>
+<dd><p>Input price matrix indexed by date, with one column per instrument.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pairs_factor_algo_class.VectorPairTradeBT.dailyret">
+<span class="sig-prename descclassname"><span class="pre">VectorPairTradeBT.</span></span><span class="sig-name descname"><span class="pre">dailyret</span></span><a class="headerlink" href="#Pairs_factor_algo_class.VectorPairTradeBT.dailyret" title="Link to this definition">#</a></dt>
+<dd><p>Fractional returns calculated from <code class="docutils literal notranslate"><span class="pre">df</span></code>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pairs_factor_algo_class.VectorPairTradeBT.R">
+<span class="sig-prename descclassname"><span class="pre">VectorPairTradeBT.</span></span><span class="sig-name descname"><span class="pre">R</span></span><a class="headerlink" href="#Pairs_factor_algo_class.VectorPairTradeBT.R" title="Link to this definition">#</a></dt>
+<dd><p>Preprocessed historical return block used for screening and factor modeling.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pairs_factor_algo_class.VectorPairTradeBT.best_res">
+<span class="sig-prename descclassname"><span class="pre">VectorPairTradeBT.</span></span><span class="sig-name descname"><span class="pre">best_res</span></span><a class="headerlink" href="#Pairs_factor_algo_class.VectorPairTradeBT.best_res" title="Link to this definition">#</a></dt>
+<dd><p>Selected pair strategies and their screening or backtest metrics.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pairs_factor_algo_class.VectorPairTradeBT.positionsTable">
+<span class="sig-prename descclassname"><span class="pre">VectorPairTradeBT.</span></span><span class="sig-name descname"><span class="pre">positionsTable</span></span><a class="headerlink" href="#Pairs_factor_algo_class.VectorPairTradeBT.positionsTable" title="Link to this definition">#</a></dt>
+<dd><p>Position matrix for the input dates and instruments.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pairs_factor_algo_class.VectorPairTradeBT.kelly_table">
+<span class="sig-prename descclassname"><span class="pre">VectorPairTradeBT.</span></span><span class="sig-name descname"><span class="pre">kelly_table</span></span><a class="headerlink" href="#Pairs_factor_algo_class.VectorPairTradeBT.kelly_table" title="Link to this definition">#</a></dt>
+<dd><p>Pair allocation scaling factors, including covariance- or sign-based
+adjustments when enabled.</p>
+</dd></dl>
+
+</section>
+<section id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Link to this heading">#</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="Pairs_factor_algo_class.VectorPairTradeBT.get_profit_metrics_from_pair_list">
+<span class="sig-prename descclassname"><span class="pre">VectorPairTradeBT.</span></span><span class="sig-name descname"><span class="pre">get_profit_metrics_from_pair_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pair_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_factor_model_for_signal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_ratios</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_grid_search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt_entry_exit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_hedge_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_search_initial_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pairs_factor_algo_class.VectorPairTradeBT.get_profit_metrics_from_pair_list" title="Link to this definition">#</a></dt>
+<dd><p>Calculate profit metrics for candidate pairs and collect the related PnL
+series, signal z-scores, result table, profitable-trade counts, and selected
+parameter sets. Optional flags control factor-model signals, ratio signals,
+grid search, entry/exit optimization, hedge-ratio updates, and verbosity.</p>
+</dd></dl>
+
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.preprocess_data.html#Pairs_factor_algo_class.VectorPairTradeBT.preprocess_data" title="Pairs_factor_algo_class.VectorPairTradeBT.preprocess_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.preprocess_data</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.pca_transform.html#Pairs_factor_algo_class.VectorPairTradeBT.pca_transform" title="Pairs_factor_algo_class.VectorPairTradeBT.pca_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.pca_transform</span></code></a></p></td>
+<td><p>9-AUG-25 : Currently only option for PCA is R-mat</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.train_model.html#Pairs_factor_algo_class.VectorPairTradeBT.train_model" title="Pairs_factor_algo_class.VectorPairTradeBT.train_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.train_model</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.evaluate_pairs.html#Pairs_factor_algo_class.VectorPairTradeBT.evaluate_pairs" title="Pairs_factor_algo_class.VectorPairTradeBT.evaluate_pairs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.evaluate_pairs</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_ou_params.html#Pairs_factor_algo_class.VectorPairTradeBT.get_ou_params" title="Pairs_factor_algo_class.VectorPairTradeBT.get_ou_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.get_ou_params</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.generate_positions.html#Pairs_factor_algo_class.VectorPairTradeBT.generate_positions" title="Pairs_factor_algo_class.VectorPairTradeBT.generate_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.generate_positions</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.preprocess_forward_data.html#Pairs_factor_algo_class.VectorPairTradeBT.preprocess_forward_data" title="Pairs_factor_algo_class.VectorPairTradeBT.preprocess_forward_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.preprocess_forward_data</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.gen_kelly_factor_table.html#Pairs_factor_algo_class.VectorPairTradeBT.gen_kelly_factor_table" title="Pairs_factor_algo_class.VectorPairTradeBT.gen_kelly_factor_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.gen_kelly_factor_table</span></code></a></p></td>
+<td><p>generate modified set of kelly factors from the PNL which correspond with grid search on the historical data nb: does not take into account entry/exit conditions these can be  used to allocate capital</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_hurst_from_zscore.html#Pairs_factor_algo_class.VectorPairTradeBT.get_hurst_from_zscore" title="Pairs_factor_algo_class.VectorPairTradeBT.get_hurst_from_zscore"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.get_hurst_from_zscore</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.generate_forward_trading_signals.html#Pairs_factor_algo_class.VectorPairTradeBT.generate_forward_trading_signals" title="Pairs_factor_algo_class.VectorPairTradeBT.generate_forward_trading_signals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.generate_forward_trading_signals</span></code></a></p></td>
+<td><p>nb: The output signal date range may not corespond with desired signal length.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.evaluate_position_table.html#Pairs_factor_algo_class.VectorPairTradeBT.evaluate_position_table" title="Pairs_factor_algo_class.VectorPairTradeBT.evaluate_position_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.evaluate_position_table</span></code></a></p></td>
+<td><p>Evaluate the performance of the positions table.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.plot.html#Pairs_factor_algo_class.VectorPairTradeBT.plot" title="Pairs_factor_algo_class.VectorPairTradeBT.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.plot</span></code></a></p></td>
+<td><p>Generate a composite plot with three subplots: 1.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.save.html#Pairs_factor_algo_class.VectorPairTradeBT.save" title="Pairs_factor_algo_class.VectorPairTradeBT.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.save</span></code></a></p></td>
+<td><p>save the attributes of the class instance as .h5 certain attributes are not save to .h5 and mignt need to be regenerated</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.load.html#Pairs_factor_algo_class.VectorPairTradeBT.load" title="Pairs_factor_algo_class.VectorPairTradeBT.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.load</span></code></a></p></td>
+<td><p>load the attributes of the class instance from previously saved .h5</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_backtest_date_info.html#Pairs_factor_algo_class.VectorPairTradeBT.get_backtest_date_info" title="Pairs_factor_algo_class.VectorPairTradeBT.get_backtest_date_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.get_backtest_date_info</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.update_best_res_positions_using_subset.html#Pairs_factor_algo_class.VectorPairTradeBT.update_best_res_positions_using_subset" title="Pairs_factor_algo_class.VectorPairTradeBT.update_best_res_positions_using_subset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.update_best_res_positions_using_subset</span></code></a></p></td>
+<td><p>this is a utility which can be used to evaluate a new future position based on a model from previous backtest df_sub: is a subset dataframe which contain closing positions for each of the pairs in best res be sure that there are enough datapoint for avergeing the position on the last date of df_sub will be appended to an output data frame and that columns in df_sub are correctly ordered.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.process_model_at_timestep.html#Pairs_factor_algo_class.VectorPairTradeBT.process_model_at_timestep" title="Pairs_factor_algo_class.VectorPairTradeBT.process_model_at_timestep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.process_model_at_timestep</span></code></a></p></td>
+<td><p>use this function if you want to reset the current factor model for a particular timestep used when reloading from saved .h5</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.reoptimize_trading_params.html#Pairs_factor_algo_class.VectorPairTradeBT.reoptimize_trading_params" title="Pairs_factor_algo_class.VectorPairTradeBT.reoptimize_trading_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.reoptimize_trading_params</span></code></a></p></td>
+<td><p>run this function to reoptimize trading parameters post loading  or on-the-fly allows modify attributes such as the grid list prior to re-opt will currently  do all from best res but can later modify to focus on a specific entry</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.fix_ema_ratio_and_vol_adjust.html#Pairs_factor_algo_class.VectorPairTradeBT.fix_ema_ratio_and_vol_adjust" title="Pairs_factor_algo_class.VectorPairTradeBT.fix_ema_ratio_and_vol_adjust"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.fix_ema_ratio_and_vol_adjust</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_simulated_profit_metrics.html#Pairs_factor_algo_class.VectorPairTradeBT.get_simulated_profit_metrics" title="Pairs_factor_algo_class.VectorPairTradeBT.get_simulated_profit_metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.get_simulated_profit_metrics</span></code></a></p></td>
+<td><p>pair list is an input dataframe which contains instrument pairs and metrics for screening there is only a single set of params becasue each param makes the list longer.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_profits_per_trade.html#Pairs_factor_algo_class.VectorPairTradeBT.get_profits_per_trade" title="Pairs_factor_algo_class.VectorPairTradeBT.get_profits_per_trade"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.get_profits_per_trade</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.use_classifier_get_prob_profita.html#Pairs_factor_algo_class.VectorPairTradeBT.use_classifier_get_prob_profita" title="Pairs_factor_algo_class.VectorPairTradeBT.use_classifier_get_prob_profita"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.use_classifier_get_prob_profita</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.plot_prob_profita_model_coefs.html#Pairs_factor_algo_class.VectorPairTradeBT.plot_prob_profita_model_coefs" title="Pairs_factor_algo_class.VectorPairTradeBT.plot_prob_profita_model_coefs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.plot_prob_profita_model_coefs</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.run.html#Pairs_factor_algo_class.VectorPairTradeBT.run" title="Pairs_factor_algo_class.VectorPairTradeBT.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VectorPairTradeBT.run</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.run.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Single_algo_Class.SingleBNBTrader.run</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.preprocess_data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pairs_factor_algo_class.VectorPairTradeBT.preprocess_data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Pairs_factor_algo_class.VectorPairTradeBT"><code class="docutils literal notranslate"><span class="pre">VectorPairTradeBT</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pairs_factor_algo_class.VectorPairTradeBT.df"><code class="docutils literal notranslate"><span class="pre">VectorPairTradeBT.df</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pairs_factor_algo_class.VectorPairTradeBT.dailyret"><code class="docutils literal notranslate"><span class="pre">VectorPairTradeBT.dailyret</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pairs_factor_algo_class.VectorPairTradeBT.R"><code class="docutils literal notranslate"><span class="pre">VectorPairTradeBT.R</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pairs_factor_algo_class.VectorPairTradeBT.best_res"><code class="docutils literal notranslate"><span class="pre">VectorPairTradeBT.best_res</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pairs_factor_algo_class.VectorPairTradeBT.positionsTable"><code class="docutils literal notranslate"><span class="pre">VectorPairTradeBT.positionsTable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pairs_factor_algo_class.VectorPairTradeBT.kelly_table"><code class="docutils literal notranslate"><span class="pre">VectorPairTradeBT.kelly_table</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pairs_factor_algo_class.VectorPairTradeBT.get_profit_metrics_from_pair_list"><code class="docutils literal notranslate"><span class="pre">VectorPairTradeBT.get_profit_metrics_from_pair_list()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Prob_Profita contributors.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

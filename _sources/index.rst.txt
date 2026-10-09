@@ -1,0 +1,21 @@
+Prob_Profita documentation
+==========================
+
+Welcome to the documentation for **Prob_Profita**, a prototype for
+statistical-arbitrage screening, strategy research, and backtesting.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Documentation
+
+   user_guide/index
+   api/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Project
+
+   user_guide/architecture
+
+The API reference is generated from the project's Python modules. The guide
+pages are a starting point for documenting concepts, workflows, and design.

@@ -1,0 +1,6 @@
+﻿Pairs\_factor\_algo\_class.VectorPairTradeBT.pca\_transform
+===========================================================
+
+.. currentmodule:: Pairs_factor_algo_class
+
+.. automethod:: VectorPairTradeBT.pca_transform

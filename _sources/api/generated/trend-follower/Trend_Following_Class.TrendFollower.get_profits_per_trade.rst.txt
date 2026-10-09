@@ -1,0 +1,6 @@
+﻿Trend\_Following\_Class.TrendFollower.get\_profits\_per\_trade
+==============================================================
+
+.. currentmodule:: Trend_Following_Class
+
+.. automethod:: TrendFollower.get_profits_per_trade

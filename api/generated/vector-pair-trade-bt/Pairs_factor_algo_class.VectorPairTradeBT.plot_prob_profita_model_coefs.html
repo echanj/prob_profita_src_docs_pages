@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Pairs_factor_algo_class.VectorPairTradeBT.plot_prob_profita_model_coefs &#8212; Prob_Profita</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.plot_prob_profita_model_coefs';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Pairs_factor_algo_class.VectorPairTradeBT.run" href="Pairs_factor_algo_class.VectorPairTradeBT.run.html" />
+    <link rel="prev" title="Pairs_factor_algo_class.VectorPairTradeBT.use_classifier_get_prob_profita" href="Pairs_factor_algo_class.VectorPairTradeBT.use_classifier_get_prob_profita.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Prob_Profita</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../single-bnb-trader.html">SingleBNBTrader</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.preprocess_data.html">Single_algo_Class.SingleBNBTrader.preprocess_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.preprocess_volumes.html">Single_algo_Class.SingleBNBTrader.preprocess_volumes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.pca_transform.html">Single_algo_Class.SingleBNBTrader.pca_transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.train_model.html">Single_algo_Class.SingleBNBTrader.train_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_instruments.html">Single_algo_Class.SingleBNBTrader.evaluate_instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.generate_positions.html">Single_algo_Class.SingleBNBTrader.generate_positions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.preprocess_forward_data.html">Single_algo_Class.SingleBNBTrader.preprocess_forward_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.generate_Buy_Hold_benchmark.html">Single_algo_Class.SingleBNBTrader.generate_Buy_Hold_benchmark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.run_gs_and_eval.html">Single_algo_Class.SingleBNBTrader.run_gs_and_eval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.run_gs_forward_degradation.html">Single_algo_Class.SingleBNBTrader.run_gs_forward_degradation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.run_init_forward_degradation.html">Single_algo_Class.SingleBNBTrader.run_init_forward_degradation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.gen_kelly_factor_table.html">Single_algo_Class.SingleBNBTrader.gen_kelly_factor_table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.update_zscore_metrics.html">Single_algo_Class.SingleBNBTrader.update_zscore_metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_forward_date_ranges.html">Single_algo_Class.SingleBNBTrader.get_forward_date_ranges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.generate_forward_trading_signals.html">Single_algo_Class.SingleBNBTrader.generate_forward_trading_signals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_forward_trading_signals.html">Single_algo_Class.SingleBNBTrader.evaluate_forward_trading_signals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_position_table.html">Single_algo_Class.SingleBNBTrader.evaluate_position_table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_extended_portfolio_metrics.html">Single_algo_Class.SingleBNBTrader.evaluate_extended_portfolio_metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.plot.html">Single_algo_Class.SingleBNBTrader.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.save.html">Single_algo_Class.SingleBNBTrader.save</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.load.html">Single_algo_Class.SingleBNBTrader.load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_backtest_date_info.html">Single_algo_Class.SingleBNBTrader.get_backtest_date_info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.update_best_res_positions_using_subset.html">Single_algo_Class.SingleBNBTrader.update_best_res_positions_using_subset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.process_model_at_timestep.html">Single_algo_Class.SingleBNBTrader.process_model_at_timestep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.reoptimize_trading_params.html">Single_algo_Class.SingleBNBTrader.reoptimize_trading_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_simulated_profit_metrics.html">Single_algo_Class.SingleBNBTrader.get_simulated_profit_metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_profits_per_trade.html">Single_algo_Class.SingleBNBTrader.get_profits_per_trade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.use_classifier_get_prob_profita.html">Single_algo_Class.SingleBNBTrader.use_classifier_get_prob_profita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.plot_prob_profita_model_coefs.html">Single_algo_Class.SingleBNBTrader.plot_prob_profita_model_coefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.print_some_trader_settings.html">Single_algo_Class.SingleBNBTrader.print_some_trader_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.diversify_best_res.html">Single_algo_Class.SingleBNBTrader.diversify_best_res</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.aggregate_deg_stats.html">Single_algo_Class.SingleBNBTrader.aggregate_deg_stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.degradation_analysis_and_filter.html">Single_algo_Class.SingleBNBTrader.degradation_analysis_and_filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.calc_gs_kldro_for_optima.html">Single_algo_Class.SingleBNBTrader.calc_gs_kldro_for_optima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.plot_grid_search_surfaces.html">Single_algo_Class.SingleBNBTrader.plot_grid_search_surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single-bnb-trader/Single_algo_Class.SingleBNBTrader.run.html">Single_algo_Class.SingleBNBTrader.run</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../vector-pair-trade-bt.html">VectorPairTradeBT</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.preprocess_data.html">Pairs_factor_algo_class.VectorPairTradeBT.preprocess_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.pca_transform.html">Pairs_factor_algo_class.VectorPairTradeBT.pca_transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.train_model.html">Pairs_factor_algo_class.VectorPairTradeBT.train_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.evaluate_pairs.html">Pairs_factor_algo_class.VectorPairTradeBT.evaluate_pairs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.get_ou_params.html">Pairs_factor_algo_class.VectorPairTradeBT.get_ou_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.generate_positions.html">Pairs_factor_algo_class.VectorPairTradeBT.generate_positions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.preprocess_forward_data.html">Pairs_factor_algo_class.VectorPairTradeBT.preprocess_forward_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.gen_kelly_factor_table.html">Pairs_factor_algo_class.VectorPairTradeBT.gen_kelly_factor_table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.get_hurst_from_zscore.html">Pairs_factor_algo_class.VectorPairTradeBT.get_hurst_from_zscore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.generate_forward_trading_signals.html">Pairs_factor_algo_class.VectorPairTradeBT.generate_forward_trading_signals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.evaluate_position_table.html">Pairs_factor_algo_class.VectorPairTradeBT.evaluate_position_table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.plot.html">Pairs_factor_algo_class.VectorPairTradeBT.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.save.html">Pairs_factor_algo_class.VectorPairTradeBT.save</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.load.html">Pairs_factor_algo_class.VectorPairTradeBT.load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.get_backtest_date_info.html">Pairs_factor_algo_class.VectorPairTradeBT.get_backtest_date_info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.update_best_res_positions_using_subset.html">Pairs_factor_algo_class.VectorPairTradeBT.update_best_res_positions_using_subset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.process_model_at_timestep.html">Pairs_factor_algo_class.VectorPairTradeBT.process_model_at_timestep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.reoptimize_trading_params.html">Pairs_factor_algo_class.VectorPairTradeBT.reoptimize_trading_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.fix_ema_ratio_and_vol_adjust.html">Pairs_factor_algo_class.VectorPairTradeBT.fix_ema_ratio_and_vol_adjust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.get_simulated_profit_metrics.html">Pairs_factor_algo_class.VectorPairTradeBT.get_simulated_profit_metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.get_profits_per_trade.html">Pairs_factor_algo_class.VectorPairTradeBT.get_profits_per_trade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.use_classifier_get_prob_profita.html">Pairs_factor_algo_class.VectorPairTradeBT.use_classifier_get_prob_profita</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Pairs_factor_algo_class.VectorPairTradeBT.plot_prob_profita_model_coefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pairs_factor_algo_class.VectorPairTradeBT.run.html">Pairs_factor_algo_class.VectorPairTradeBT.run</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../trend-follower.html">TrendFollower</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../trend-follower/Trend_Following_Class.TrendFollower.get_profits_per_trade.html">Trend_Following_Class.TrendFollower.get_profits_per_trade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trend-follower/Trend_Following_Class.TrendFollower.use_classifier_get_prob_profita.html">Trend_Following_Class.TrendFollower.use_classifier_get_prob_profita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trend-follower/Trend_Following_Class.TrendFollower.plot_prob_profita_model_coefs.html">Trend_Following_Class.TrendFollower.plot_prob_profita_model_coefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trend-follower/Trend_Following_Class.TrendFollower.generate_forward_trading_signals_tf.html">Trend_Following_Class.TrendFollower.generate_forward_trading_signals_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trend-follower/Trend_Following_Class.TrendFollower.run_gs_and_eval_tf.html">Trend_Following_Class.TrendFollower.run_gs_and_eval_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trend-follower/Trend_Following_Class.TrendFollower.run_gs_forward_degradation_tf.html">Trend_Following_Class.TrendFollower.run_gs_forward_degradation_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trend-follower/Trend_Following_Class.TrendFollower.run_init_forward_degradation_tf.html">Trend_Following_Class.TrendFollower.run_init_forward_degradation_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trend-follower/Trend_Following_Class.TrendFollower.update_best_res_positions_using_subset_tf.html">Trend_Following_Class.TrendFollower.update_best_res_positions_using_subset_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trend-follower/Trend_Following_Class.TrendFollower.calc_gs_kldro_for_optima_tf.html">Trend_Following_Class.TrendFollower.calc_gs_kldro_for_optima_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trend-follower/Trend_Following_Class.TrendFollower.run_trend_follower.html">Trend_Following_Class.TrendFollower.run_trend_follower</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Single_algo_Class.html">Single_algo_Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Pairs_factor_algo_class.html">Pairs_factor_algo_class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Trend_Following_Class.html">Trend_Following_Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CPO_functions.CPO_functions.html">CPO_functions.CPO_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CPO_functions.utility_functions.html">CPO_functions.utility_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CPO_functions.indicator_functions.html">CPO_functions.indicator_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CPO_functions.extended_backtest_functions.html">CPO_functions.extended_backtest_functions</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">API reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../../vector-pair-trade-bt.html" class="nav-link">VectorPairTradeBT</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Pairs_factor_algo_class.VectorPairTradeBT.plot_prob_profita_model_coefs</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="pairs-factor-algo-class-vectorpairtradebt-plot-prob-profita-model-coefs">
+<h1>Pairs_factor_algo_class.VectorPairTradeBT.plot_prob_profita_model_coefs<a class="headerlink" href="#pairs-factor-algo-class-vectorpairtradebt-plot-prob-profita-model-coefs" title="Link to this heading">#</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="Pairs_factor_algo_class.VectorPairTradeBT.plot_prob_profita_model_coefs">
+<span class="sig-prename descclassname"><span class="pre">VectorPairTradeBT.</span></span><span class="sig-name descname"><span class="pre">plot_prob_profita_model_coefs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Pairs_factor_algo_class.VectorPairTradeBT.plot_prob_profita_model_coefs" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Pairs_factor_algo_class.VectorPairTradeBT.use_classifier_get_prob_profita.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Pairs_factor_algo_class.VectorPairTradeBT.use_classifier_get_prob_profita</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Pairs_factor_algo_class.VectorPairTradeBT.run.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pairs_factor_algo_class.VectorPairTradeBT.run</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Pairs_factor_algo_class.VectorPairTradeBT.plot_prob_profita_model_coefs"><code class="docutils literal notranslate"><span class="pre">VectorPairTradeBT.plot_prob_profita_model_coefs()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Prob_Profita contributors.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

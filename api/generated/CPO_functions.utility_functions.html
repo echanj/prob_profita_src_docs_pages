@@ -1,0 +1,712 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>CPO_functions.utility_functions &#8212; Prob_Profita</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/generated/CPO_functions.utility_functions';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="CPO_functions.indicator_functions" href="CPO_functions.indicator_functions.html" />
+    <link rel="prev" title="CPO_functions.CPO_functions" href="CPO_functions.CPO_functions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Prob_Profita</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../single-bnb-trader.html">SingleBNBTrader</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.preprocess_data.html">Single_algo_Class.SingleBNBTrader.preprocess_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.preprocess_volumes.html">Single_algo_Class.SingleBNBTrader.preprocess_volumes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.pca_transform.html">Single_algo_Class.SingleBNBTrader.pca_transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.train_model.html">Single_algo_Class.SingleBNBTrader.train_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_instruments.html">Single_algo_Class.SingleBNBTrader.evaluate_instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.generate_positions.html">Single_algo_Class.SingleBNBTrader.generate_positions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.preprocess_forward_data.html">Single_algo_Class.SingleBNBTrader.preprocess_forward_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.generate_Buy_Hold_benchmark.html">Single_algo_Class.SingleBNBTrader.generate_Buy_Hold_benchmark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.run_gs_and_eval.html">Single_algo_Class.SingleBNBTrader.run_gs_and_eval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.run_gs_forward_degradation.html">Single_algo_Class.SingleBNBTrader.run_gs_forward_degradation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.run_init_forward_degradation.html">Single_algo_Class.SingleBNBTrader.run_init_forward_degradation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.gen_kelly_factor_table.html">Single_algo_Class.SingleBNBTrader.gen_kelly_factor_table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.update_zscore_metrics.html">Single_algo_Class.SingleBNBTrader.update_zscore_metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_forward_date_ranges.html">Single_algo_Class.SingleBNBTrader.get_forward_date_ranges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.generate_forward_trading_signals.html">Single_algo_Class.SingleBNBTrader.generate_forward_trading_signals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_forward_trading_signals.html">Single_algo_Class.SingleBNBTrader.evaluate_forward_trading_signals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_position_table.html">Single_algo_Class.SingleBNBTrader.evaluate_position_table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_extended_portfolio_metrics.html">Single_algo_Class.SingleBNBTrader.evaluate_extended_portfolio_metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.plot.html">Single_algo_Class.SingleBNBTrader.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.save.html">Single_algo_Class.SingleBNBTrader.save</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.load.html">Single_algo_Class.SingleBNBTrader.load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_backtest_date_info.html">Single_algo_Class.SingleBNBTrader.get_backtest_date_info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.update_best_res_positions_using_subset.html">Single_algo_Class.SingleBNBTrader.update_best_res_positions_using_subset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.process_model_at_timestep.html">Single_algo_Class.SingleBNBTrader.process_model_at_timestep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.reoptimize_trading_params.html">Single_algo_Class.SingleBNBTrader.reoptimize_trading_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_simulated_profit_metrics.html">Single_algo_Class.SingleBNBTrader.get_simulated_profit_metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_profits_per_trade.html">Single_algo_Class.SingleBNBTrader.get_profits_per_trade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.use_classifier_get_prob_profita.html">Single_algo_Class.SingleBNBTrader.use_classifier_get_prob_profita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.plot_prob_profita_model_coefs.html">Single_algo_Class.SingleBNBTrader.plot_prob_profita_model_coefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.print_some_trader_settings.html">Single_algo_Class.SingleBNBTrader.print_some_trader_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.diversify_best_res.html">Single_algo_Class.SingleBNBTrader.diversify_best_res</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.aggregate_deg_stats.html">Single_algo_Class.SingleBNBTrader.aggregate_deg_stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.degradation_analysis_and_filter.html">Single_algo_Class.SingleBNBTrader.degradation_analysis_and_filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.calc_gs_kldro_for_optima.html">Single_algo_Class.SingleBNBTrader.calc_gs_kldro_for_optima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.plot_grid_search_surfaces.html">Single_algo_Class.SingleBNBTrader.plot_grid_search_surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-bnb-trader/Single_algo_Class.SingleBNBTrader.run.html">Single_algo_Class.SingleBNBTrader.run</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../vector-pair-trade-bt.html">VectorPairTradeBT</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.preprocess_data.html">Pairs_factor_algo_class.VectorPairTradeBT.preprocess_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.pca_transform.html">Pairs_factor_algo_class.VectorPairTradeBT.pca_transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.train_model.html">Pairs_factor_algo_class.VectorPairTradeBT.train_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.evaluate_pairs.html">Pairs_factor_algo_class.VectorPairTradeBT.evaluate_pairs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_ou_params.html">Pairs_factor_algo_class.VectorPairTradeBT.get_ou_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.generate_positions.html">Pairs_factor_algo_class.VectorPairTradeBT.generate_positions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.preprocess_forward_data.html">Pairs_factor_algo_class.VectorPairTradeBT.preprocess_forward_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.gen_kelly_factor_table.html">Pairs_factor_algo_class.VectorPairTradeBT.gen_kelly_factor_table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_hurst_from_zscore.html">Pairs_factor_algo_class.VectorPairTradeBT.get_hurst_from_zscore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.generate_forward_trading_signals.html">Pairs_factor_algo_class.VectorPairTradeBT.generate_forward_trading_signals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.evaluate_position_table.html">Pairs_factor_algo_class.VectorPairTradeBT.evaluate_position_table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.plot.html">Pairs_factor_algo_class.VectorPairTradeBT.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.save.html">Pairs_factor_algo_class.VectorPairTradeBT.save</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.load.html">Pairs_factor_algo_class.VectorPairTradeBT.load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_backtest_date_info.html">Pairs_factor_algo_class.VectorPairTradeBT.get_backtest_date_info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.update_best_res_positions_using_subset.html">Pairs_factor_algo_class.VectorPairTradeBT.update_best_res_positions_using_subset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.process_model_at_timestep.html">Pairs_factor_algo_class.VectorPairTradeBT.process_model_at_timestep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.reoptimize_trading_params.html">Pairs_factor_algo_class.VectorPairTradeBT.reoptimize_trading_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.fix_ema_ratio_and_vol_adjust.html">Pairs_factor_algo_class.VectorPairTradeBT.fix_ema_ratio_and_vol_adjust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_simulated_profit_metrics.html">Pairs_factor_algo_class.VectorPairTradeBT.get_simulated_profit_metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_profits_per_trade.html">Pairs_factor_algo_class.VectorPairTradeBT.get_profits_per_trade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.use_classifier_get_prob_profita.html">Pairs_factor_algo_class.VectorPairTradeBT.use_classifier_get_prob_profita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.plot_prob_profita_model_coefs.html">Pairs_factor_algo_class.VectorPairTradeBT.plot_prob_profita_model_coefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.run.html">Pairs_factor_algo_class.VectorPairTradeBT.run</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../trend-follower.html">TrendFollower</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="trend-follower/Trend_Following_Class.TrendFollower.get_profits_per_trade.html">Trend_Following_Class.TrendFollower.get_profits_per_trade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trend-follower/Trend_Following_Class.TrendFollower.use_classifier_get_prob_profita.html">Trend_Following_Class.TrendFollower.use_classifier_get_prob_profita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trend-follower/Trend_Following_Class.TrendFollower.plot_prob_profita_model_coefs.html">Trend_Following_Class.TrendFollower.plot_prob_profita_model_coefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trend-follower/Trend_Following_Class.TrendFollower.generate_forward_trading_signals_tf.html">Trend_Following_Class.TrendFollower.generate_forward_trading_signals_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trend-follower/Trend_Following_Class.TrendFollower.run_gs_and_eval_tf.html">Trend_Following_Class.TrendFollower.run_gs_and_eval_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trend-follower/Trend_Following_Class.TrendFollower.run_gs_forward_degradation_tf.html">Trend_Following_Class.TrendFollower.run_gs_forward_degradation_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trend-follower/Trend_Following_Class.TrendFollower.run_init_forward_degradation_tf.html">Trend_Following_Class.TrendFollower.run_init_forward_degradation_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trend-follower/Trend_Following_Class.TrendFollower.update_best_res_positions_using_subset_tf.html">Trend_Following_Class.TrendFollower.update_best_res_positions_using_subset_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trend-follower/Trend_Following_Class.TrendFollower.calc_gs_kldro_for_optima_tf.html">Trend_Following_Class.TrendFollower.calc_gs_kldro_for_optima_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trend-follower/Trend_Following_Class.TrendFollower.run_trend_follower.html">Trend_Following_Class.TrendFollower.run_trend_follower</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Single_algo_Class.html">Single_algo_Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pairs_factor_algo_class.html">Pairs_factor_algo_class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Trend_Following_Class.html">Trend_Following_Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CPO_functions.CPO_functions.html">CPO_functions.CPO_functions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">CPO_functions.utility_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CPO_functions.indicator_functions.html">CPO_functions.indicator_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CPO_functions.extended_backtest_functions.html">CPO_functions.extended_backtest_functions</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">CPO_functions.utility_functions</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-CPO_functions.utility_functions">
+<span id="cpo-functions-utility-functions"></span><h1>CPO_functions.utility_functions<a class="headerlink" href="#module-CPO_functions.utility_functions" title="Link to this heading">#</a></h1>
+<p class="rubric">Functions</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">backtest_proxy_data</span></code>(proxy, position[, ...])</p></td>
+<td><p>modified to use a proxy for the  price .i.e the z-score itself this is not using pct_change rather just the sum of returns same idea for when we used the OU process to generate the z-score and used that process as a representative price nb: since the length of the proxy here is the same as the length of obs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">backtest_single_data</span></code>(ts1, position[, ...])</p></td>
+<td><p>modified to use close price so the position is shifted only 1 period forward and we assum we enter at close price and exit at next period close price This is the typical EP chan method and I find overestimates the profit - buts its just for simple backtest add hoc backtest based on those selected inputs nb: extracting the zero or null entries out of pnl for sharpe calc doesnt make much differnce</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_TA_indicators</span></code>(stock_data[, window])</p></td>
+<td><p>nb: theres this isnteresting way to return the series you want if calculating via ta as opposed to talib weather to use talib vs python ta library only need to use talib for realtime 'otf' stuff these are TA's from EP Chan example 7.1</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_feature_for_outliers</span></code>(df, column[, ...])</p></td>
+<td><p>Check for outliers in a specified dataframe column and optionally plot the distribution.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">combine_signals_stateful</span></code>(signal_long, ...[, ...])</p></td>
+<td><p>Combine unfilled long/short trigger series into a single position series.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_parameter_string_to_tuple</span></code>(param_str)</p></td>
+<td><p>when saveing tuples stored in dataframes are saved as strings</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">do_backtesting_on_holdout_data</span></code>(df1, df2, ...)</p></td>
+<td><p>params_opt : list of params corresponding to peaks in pnl surface BT_params : list of params to locate correct data positions for BT</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">do_grid_search_OU_params</span></code>(ou_params, params_list)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ema_manual</span></code>(s[, m, period])</p></td>
+<td><p>s: series m: smoothing factor</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">emv_manual</span></code>(s[, m, period])</p></td>
+<td><p>Calcualte the exponential moving variance manullay this is based on EP chan but ive modified alpha to be the typical (m/1+period) s: series m: smoothing factor</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_cointegrated_pairs</span></code>(data[, p_thresh])</p></td>
+<td><p>This function finds and returns cointegrated pairs of time series from the given data.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_OU_with_OLS</span></code>(spread[, dt, verbose])</p></td>
+<td><p>Fit an Ornstein-Uhlenbeck (OU) process to a given spread using Ordinary Least Squares (OLS).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_Kalman_signal_for_bt</span></code>(ts1, ts2, params[, ...])</p></td>
+<td><p>most important kf setting is    transition_covariance smaller values are broaden the state mean 0.0001 window:   transition_covariance must be a float</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_OU_params_for_pairs_list</span></code>(pair_list_res, ...)</p></td>
+<td><p>fixed a bug with pd.concat -  needed to be careful about the ordering of lists</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_corr_matrix_for_symbols</span></code>(R, symbols)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_crossover_signal</span></code>(s1, s2)</p></td>
+<td><p>Input two series or a series and a threshold includes conditionals in case s1 or s2 are constants outputs a boolean series with True for crossover points</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_df_params_with_indicators</span></code>(df1, df2, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_entry_exit_from_params</span></code>(params[, enable_skew])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hedge_ratio</span></code>(s1, s2)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_indicators</span></code>(df, TA_windows)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_last_ndays</span></code>(df1, df2[, ndays])</p></td>
+<td><p>input two stock df with timestamp index and return truncated df for the last ndays</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metrics_from_bt_stats_trades</span></code>(...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_opt_signal</span></code>(ts1, ts2[, pct_period])</p></td>
+<td><p>signal and components; that we would need assume we enter/exit at the Open (market) price</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_parameter_list</span></code>([exp_type])</p></td>
+<td><p>return different lists depending on need</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_peaks_on_pnl</span></code>(df_params, params_list, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_pnl_metrics_from_btstats</span></code>(bt_stats)</p></td>
+<td><p>this will manually calculate the metric</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_position_macd</span></code>(s_score[, sign, s_bo, ...])</p></td>
+<td><p>This is a variant of the original approch however it is modified primarily for use with MACD and tend following.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_position_macd_regime_basic</span></code>(s_score[, ...])</p></td>
+<td><p>In this variant we will not use a crossover to determine entry exit.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_position_s_score</span></code>(s_score[, sign, s_bo, ...])</p></td>
+<td><p>return the buy hold sell signal (1) from a normalized model price spread 's_scores' the thresholds are set to default values taken from avlee paper</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sector_from_symbol_using_yf</span></code>(symbols)</p></td>
+<td><p>Input: pandas Series of ticker symbols Output: DataFrame with sector, next earnings date, days until earnings</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sharpe_ratio</span></code>(pnl)</p></td>
+<td><p>the input pnl is only the return-rates i.e. dP/P  =  P_sell/Pbuy - 1  =  (P_sell-P_buy)/P_buy.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_signal_for_bt</span></code>(ts1, ts2, params[, ...])</p></td>
+<td><p>modification (Jul 5 2024): allow for optimizing single hedge ratio if using difference between prices modification (Jun 11 2024): asymmetry parameter</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_signal_for_bt_single_stock</span></code>(ts1, params)</p></td>
+<td><p>mod (Feb 14 2025) : now returns s_score for processing further metrics</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_signal_for_bt_trend_follower</span></code>(ts1, params)</p></td>
+<td><p>29 APR 2025 : adapted from the bollinger band Z-score</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_spreads</span></code>(ts1, ts2[, wfast, window, ...])</p></td>
+<td><p>helper function to evaluate z-scores on the fly from input ts</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_spreads_multi_window</span></code>(ts1, ts2[, ...])</p></td>
+<td><p>get spreads over multiple window settings only need to append z_score once for each slow window</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hurst_OLS</span></code>(ts[, max_lags, make_plot])</p></td>
+<td><p>Returns the Hurst Exponent of the time series vector ts</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_crossover</span></code>(v1m1, v1m2, v2m1, v2m2)</p></td>
+<td><p>v1m1: current value1 v1m2: prev value1 v2m1: current value2 v2m2: prev value2</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">kpss_test</span></code>(timeseries[, nlags])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_friday</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_weekday</span></code>([day_idx])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_and_cleanse_alphavantage_csv_pair</span></code>(...)</p></td>
+<td><p>Load and cleanse CSV data for two symbols from Alpha Vantage.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_vpt_combo_set</span></code>(df, vpt_params, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_vpt_set</span></code>(df, eval_date_str, savename)</p></td>
+<td><p>This function loads the VPT set of models from the saved files it does not need the vpt hyperparams combo list</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">manual_gs_for_parameter_list</span></code>(ts1, params_list)</p></td>
+<td><p>can do multiple backtests from a list but this also will work for a single point calc is you wrap the inputs correctly</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ou_process</span></code>(n, theta, mu, sigma, dt, init)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_trading_log</span></code>(filepath)</p></td>
+<td><p>Parse a trading log into two structured DataFrames:</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">perform_ADF_tests</span></code>(data, paramslist[, ...])</p></td>
+<td><p>input price data cols and params list run ADF test on BB z-scores generated by gridscanning generate tables for multiple metrics of interest i.e. p-val and drift coeffient.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_cointegration_pvalues</span></code>(series1, series2)</p></td>
+<td><p>Computes p-values for cointegration tests at different lags and plots the results.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_histo_comparison</span></code>(df, col_name1, col_name2)</p></td>
+<td><p>Plots KDE and boxplot comparisons for two numerical columns in a DataFrame.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_backtest_using_OU_process</span></code>(params, ou_params)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_gs_and_eval</span></code>(df_prices, ...[, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_multi_grid_search_on_OU_process</span></code>(theta, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">summarize_null_entries</span></code>(df)</p></td>
+<td><p>Function to summarize and return details about null entries in a DataFrame.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">trading_log_summarize_and_plot</span></code>(updates_df, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_btlist_with_buy_hold_benchmarks</span></code>(...)</p></td>
+<td><p>updates the list with the buy and hold benchmark for the period of the unbiased backtest</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_hurst_from_pairlist</span></code>(df_train, df_pairlist)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_tracking_csv</span></code>(init_args, tracking_csv_path)</p></td>
+<td><p>Updates a tracking CSV file with a new row from <cite>init_args</cite>, avoiding duplicates.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">vectorized_backtest</span></code>(stock_df1, stock_df2, params)</p></td>
+<td><p>use_trading_period: specified that a trding period is set in place so lookback can be set for windows with larger historical data but only the [-tradingperiod:] rows is used to calculate the return</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">vectorized_backtest_ratios</span></code>(stock_df1, ...[, ...])</p></td>
+<td><p>variant on above method but now use two avergeing windows and not hedge ratios w0= fast window window= slow window</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">vectorized_backtest_signal</span></code>(stock_df1, ...[, ...])</p></td>
+<td><p>run a pairs trade style vectorized backtest I offset the position signal by 2 steps so I get the returns on the difference of following day opening prices</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">worker</span></code>(grid_search_id, ou_params, ...)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="CPO_functions.CPO_functions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">CPO_functions.CPO_functions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="CPO_functions.indicator_functions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">CPO_functions.indicator_functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Prob_Profita contributors.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

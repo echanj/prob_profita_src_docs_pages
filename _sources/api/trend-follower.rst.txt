@@ -1,0 +1,33 @@
+TrendFollower
+=============
+
+.. currentmodule:: Trend_Following_Class
+
+Single-asset trend strategy using MACD signals and Markov-switching regime
+metrics. It filters candidates by regime durations and supports crossover or
+regime signal modes.
+
+.. autoclass:: TrendFollower
+   :no-members:
+   :show-inheritance:
+
+The class inherits the common screening, evaluation, and backtesting interface
+from :class:`Single_algo_Class.SingleBNBTrader`.
+
+Methods
+-------
+
+.. autosummary::
+   :toctree: generated/trend-follower
+   :nosignatures:
+
+   TrendFollower.get_profits_per_trade
+   TrendFollower.use_classifier_get_prob_profita
+   TrendFollower.plot_prob_profita_model_coefs
+   TrendFollower.generate_forward_trading_signals_tf
+   TrendFollower.run_gs_and_eval_tf
+   TrendFollower.run_gs_forward_degradation_tf
+   TrendFollower.run_init_forward_degradation_tf
+   TrendFollower.update_best_res_positions_using_subset_tf
+   TrendFollower.calc_gs_kldro_for_optima_tf
+   TrendFollower.run_trend_follower

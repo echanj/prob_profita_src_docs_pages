@@ -1,0 +1,6 @@
+﻿Single\_algo\_Class.SingleBNBTrader.get\_simulated\_profit\_metrics
+===================================================================
+
+.. currentmodule:: Single_algo_Class
+
+.. automethod:: SingleBNBTrader.get_simulated_profit_metrics

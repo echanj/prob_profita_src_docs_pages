@@ -1,0 +1,6 @@
+﻿Trend\_Following\_Class.TrendFollower.plot\_prob\_profita\_model\_coefs
+=======================================================================
+
+.. currentmodule:: Trend_Following_Class
+
+.. automethod:: TrendFollower.plot_prob_profita_model_coefs

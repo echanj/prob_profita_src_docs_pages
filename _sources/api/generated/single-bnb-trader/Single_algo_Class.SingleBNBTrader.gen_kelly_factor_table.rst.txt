@@ -1,0 +1,6 @@
+﻿Single\_algo\_Class.SingleBNBTrader.gen\_kelly\_factor\_table
+=============================================================
+
+.. currentmodule:: Single_algo_Class
+
+.. automethod:: SingleBNBTrader.gen_kelly_factor_table

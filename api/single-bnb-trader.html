@@ -1,0 +1,2288 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SingleBNBTrader &#8212; Prob_Profita</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/single-bnb-trader';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Single_algo_Class.SingleBNBTrader.preprocess_data" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.preprocess_data.html" />
+    <link rel="prev" title="API reference" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Prob_Profita</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">SingleBNBTrader</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.preprocess_data.html">Single_algo_Class.SingleBNBTrader.preprocess_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.preprocess_volumes.html">Single_algo_Class.SingleBNBTrader.preprocess_volumes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.pca_transform.html">Single_algo_Class.SingleBNBTrader.pca_transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.train_model.html">Single_algo_Class.SingleBNBTrader.train_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_instruments.html">Single_algo_Class.SingleBNBTrader.evaluate_instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.generate_positions.html">Single_algo_Class.SingleBNBTrader.generate_positions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.preprocess_forward_data.html">Single_algo_Class.SingleBNBTrader.preprocess_forward_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.generate_Buy_Hold_benchmark.html">Single_algo_Class.SingleBNBTrader.generate_Buy_Hold_benchmark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.run_gs_and_eval.html">Single_algo_Class.SingleBNBTrader.run_gs_and_eval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.run_gs_forward_degradation.html">Single_algo_Class.SingleBNBTrader.run_gs_forward_degradation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.run_init_forward_degradation.html">Single_algo_Class.SingleBNBTrader.run_init_forward_degradation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.gen_kelly_factor_table.html">Single_algo_Class.SingleBNBTrader.gen_kelly_factor_table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.update_zscore_metrics.html">Single_algo_Class.SingleBNBTrader.update_zscore_metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_forward_date_ranges.html">Single_algo_Class.SingleBNBTrader.get_forward_date_ranges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.generate_forward_trading_signals.html">Single_algo_Class.SingleBNBTrader.generate_forward_trading_signals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_forward_trading_signals.html">Single_algo_Class.SingleBNBTrader.evaluate_forward_trading_signals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_position_table.html">Single_algo_Class.SingleBNBTrader.evaluate_position_table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_extended_portfolio_metrics.html">Single_algo_Class.SingleBNBTrader.evaluate_extended_portfolio_metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.plot.html">Single_algo_Class.SingleBNBTrader.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.save.html">Single_algo_Class.SingleBNBTrader.save</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.load.html">Single_algo_Class.SingleBNBTrader.load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_backtest_date_info.html">Single_algo_Class.SingleBNBTrader.get_backtest_date_info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.update_best_res_positions_using_subset.html">Single_algo_Class.SingleBNBTrader.update_best_res_positions_using_subset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.process_model_at_timestep.html">Single_algo_Class.SingleBNBTrader.process_model_at_timestep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.reoptimize_trading_params.html">Single_algo_Class.SingleBNBTrader.reoptimize_trading_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_simulated_profit_metrics.html">Single_algo_Class.SingleBNBTrader.get_simulated_profit_metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_profits_per_trade.html">Single_algo_Class.SingleBNBTrader.get_profits_per_trade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.use_classifier_get_prob_profita.html">Single_algo_Class.SingleBNBTrader.use_classifier_get_prob_profita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.plot_prob_profita_model_coefs.html">Single_algo_Class.SingleBNBTrader.plot_prob_profita_model_coefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.print_some_trader_settings.html">Single_algo_Class.SingleBNBTrader.print_some_trader_settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.diversify_best_res.html">Single_algo_Class.SingleBNBTrader.diversify_best_res</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.aggregate_deg_stats.html">Single_algo_Class.SingleBNBTrader.aggregate_deg_stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.degradation_analysis_and_filter.html">Single_algo_Class.SingleBNBTrader.degradation_analysis_and_filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.calc_gs_kldro_for_optima.html">Single_algo_Class.SingleBNBTrader.calc_gs_kldro_for_optima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.plot_grid_search_surfaces.html">Single_algo_Class.SingleBNBTrader.plot_grid_search_surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.run.html">Single_algo_Class.SingleBNBTrader.run</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="vector-pair-trade-bt.html">VectorPairTradeBT</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.preprocess_data.html">Pairs_factor_algo_class.VectorPairTradeBT.preprocess_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.pca_transform.html">Pairs_factor_algo_class.VectorPairTradeBT.pca_transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.train_model.html">Pairs_factor_algo_class.VectorPairTradeBT.train_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.evaluate_pairs.html">Pairs_factor_algo_class.VectorPairTradeBT.evaluate_pairs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_ou_params.html">Pairs_factor_algo_class.VectorPairTradeBT.get_ou_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.generate_positions.html">Pairs_factor_algo_class.VectorPairTradeBT.generate_positions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.preprocess_forward_data.html">Pairs_factor_algo_class.VectorPairTradeBT.preprocess_forward_data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.gen_kelly_factor_table.html">Pairs_factor_algo_class.VectorPairTradeBT.gen_kelly_factor_table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_hurst_from_zscore.html">Pairs_factor_algo_class.VectorPairTradeBT.get_hurst_from_zscore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.generate_forward_trading_signals.html">Pairs_factor_algo_class.VectorPairTradeBT.generate_forward_trading_signals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.evaluate_position_table.html">Pairs_factor_algo_class.VectorPairTradeBT.evaluate_position_table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.plot.html">Pairs_factor_algo_class.VectorPairTradeBT.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.save.html">Pairs_factor_algo_class.VectorPairTradeBT.save</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.load.html">Pairs_factor_algo_class.VectorPairTradeBT.load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_backtest_date_info.html">Pairs_factor_algo_class.VectorPairTradeBT.get_backtest_date_info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.update_best_res_positions_using_subset.html">Pairs_factor_algo_class.VectorPairTradeBT.update_best_res_positions_using_subset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.process_model_at_timestep.html">Pairs_factor_algo_class.VectorPairTradeBT.process_model_at_timestep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.reoptimize_trading_params.html">Pairs_factor_algo_class.VectorPairTradeBT.reoptimize_trading_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.fix_ema_ratio_and_vol_adjust.html">Pairs_factor_algo_class.VectorPairTradeBT.fix_ema_ratio_and_vol_adjust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_simulated_profit_metrics.html">Pairs_factor_algo_class.VectorPairTradeBT.get_simulated_profit_metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.get_profits_per_trade.html">Pairs_factor_algo_class.VectorPairTradeBT.get_profits_per_trade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.use_classifier_get_prob_profita.html">Pairs_factor_algo_class.VectorPairTradeBT.use_classifier_get_prob_profita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.plot_prob_profita_model_coefs.html">Pairs_factor_algo_class.VectorPairTradeBT.plot_prob_profita_model_coefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vector-pair-trade-bt/Pairs_factor_algo_class.VectorPairTradeBT.run.html">Pairs_factor_algo_class.VectorPairTradeBT.run</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="trend-follower.html">TrendFollower</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.get_profits_per_trade.html">Trend_Following_Class.TrendFollower.get_profits_per_trade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.use_classifier_get_prob_profita.html">Trend_Following_Class.TrendFollower.use_classifier_get_prob_profita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.plot_prob_profita_model_coefs.html">Trend_Following_Class.TrendFollower.plot_prob_profita_model_coefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.generate_forward_trading_signals_tf.html">Trend_Following_Class.TrendFollower.generate_forward_trading_signals_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.run_gs_and_eval_tf.html">Trend_Following_Class.TrendFollower.run_gs_and_eval_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.run_gs_forward_degradation_tf.html">Trend_Following_Class.TrendFollower.run_gs_forward_degradation_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.run_init_forward_degradation_tf.html">Trend_Following_Class.TrendFollower.run_init_forward_degradation_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.update_best_res_positions_using_subset_tf.html">Trend_Following_Class.TrendFollower.update_best_res_positions_using_subset_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.calc_gs_kldro_for_optima_tf.html">Trend_Following_Class.TrendFollower.calc_gs_kldro_for_optima_tf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/trend-follower/Trend_Following_Class.TrendFollower.run_trend_follower.html">Trend_Following_Class.TrendFollower.run_trend_follower</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="generated/Single_algo_Class.html">Single_algo_Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/Pairs_factor_algo_class.html">Pairs_factor_algo_class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/Trend_Following_Class.html">Trend_Following_Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/CPO_functions.CPO_functions.html">CPO_functions.CPO_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/CPO_functions.utility_functions.html">CPO_functions.utility_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/CPO_functions.indicator_functions.html">CPO_functions.indicator_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/CPO_functions.extended_backtest_functions.html">CPO_functions.extended_backtest_functions</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">API reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">SingleBNBTrader</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="singlebnbtrader">
+<h1>SingleBNBTrader<a class="headerlink" href="#singlebnbtrader" title="Link to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">Single_algo_Class.</span></span><span class="sig-name descname"><span class="pre">SingleBNBTrader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volumes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indicators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lookback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">252</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_factors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_penu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signal_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signal_freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'B'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_halflife</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hlw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hl_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">past_n_periods</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">droplist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_all_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'legacy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_types_ee</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'entry_exit'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">focus_symbol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_span_before_PCA</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_pc1_explained_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_top_ranking</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PC1_sorted_labels_rank_lowest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_covariance_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_RxV_for_PCA</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_isna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_zeroR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_ADF_pval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hurst_lags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kpss_lags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filt_str1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'profit_bench'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filt_str2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'profit_bench'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_by0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'p-value'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_by0_ascend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filt_by1_ascend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_filter_by2_thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_quantile_filter_by2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_ou_sim_enable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_OU_sim_ngs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OU_sim_mix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score_coef</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score_by1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc_adv_score</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_clf_prob</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clf_prob_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clf_profita_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_opt_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sharpe'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_grid_search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt_entry_exit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_skew</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mix_proxy_for_opt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_grid_search_res</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gs_monitor_forward_degradation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_gs_kldro_for_optima</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_monitor_forward_degradation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_init_kldro_for_ranking</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_kldro_adv_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oos_filt_by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sharpe_bench'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oos_filt_by_thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_filter_using_init_degradation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_nan_init_degradation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_pre_filter_agg_tables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_post_filter_agg_tables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_agg_filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_agg_filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip_rate_bp_thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.33</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_rate_thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwd_deg_start_mult</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwd_deg_stride_mult</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profit_bench_with_factors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_factor_model_for_gs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_extended_backtest_metrics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kelly_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kelly_use_covar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kelly_use_sign</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluation_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_stride</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu_masking_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_masking_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntrades_sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R2_adj_masking_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Phi0_SE_masking_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Phi1_SE_masking_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_dd_quantile_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_dd_tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dd_duration_quantile_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dd_duration_tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Screen instruments and generate single-asset Mean-Reversion trading strategies.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.MOLR">
+<span class="sig-name descname"><span class="pre">MOLR</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.MOLR" title="Link to this definition">#</a></dt>
+<dd><p>Fitted multi-output linear regression model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>MultiOutputRegressor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.MSM_features">
+<span class="sig-name descname"><span class="pre">MSM_features</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.MSM_features" title="Link to this definition">#</a></dt>
+<dd><p>Feature data via Markov Switching Models. Used only for trend-following candidates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.OU_sim_mix">
+<span class="sig-name descname"><span class="pre">OU_sim_mix</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.OU_sim_mix" title="Link to this definition">#</a></dt>
+<dd><p>Weight for mixing simulated OU metrics into ranking scores.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.P">
+<span class="sig-name descname"><span class="pre">P</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.P" title="Link to this definition">#</a></dt>
+<dd><p>Historical price block aligned with the volume block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.PC1_sorted_labels_rank_lowest">
+<span class="sig-name descname"><span class="pre">PC1_sorted_labels_rank_lowest</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.PC1_sorted_labels_rank_lowest" title="Link to this definition">#</a></dt>
+<dd><p>Whether to select instruments with the lowest absolute PC1 loadings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.Phi0_SE_masking_factor">
+<span class="sig-name descname"><span class="pre">Phi0_SE_masking_factor</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.Phi0_SE_masking_factor" title="Link to this definition">#</a></dt>
+<dd><p>Threshold multiplier for the OU Phi0 standard-error filter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.Phi1_SE_masking_factor">
+<span class="sig-name descname"><span class="pre">Phi1_SE_masking_factor</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.Phi1_SE_masking_factor" title="Link to this definition">#</a></dt>
+<dd><p>Threshold multiplier for the OU Phi1 standard-error filter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.R">
+<span class="sig-name descname"><span class="pre">R</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.R" title="Link to this definition">#</a></dt>
+<dd><p>Historical fractional-return block used for screening and modeling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.R2_adj_masking_factor">
+<span class="sig-name descname"><span class="pre">R2_adj_masking_factor</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.R2_adj_masking_factor" title="Link to this definition">#</a></dt>
+<dd><p>Threshold multiplier for the adjusted-R-squared filter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.R_ewm_span_before_PCA">
+<span class="sig-name descname"><span class="pre">R_ewm_span_before_PCA</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.R_ewm_span_before_PCA" title="Link to this definition">#</a></dt>
+<dd><p>Exponential smoothing span in observations before PCA.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.R_factor_fut">
+<span class="sig-name descname"><span class="pre">R_factor_fut</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.R_factor_fut" title="Link to this definition">#</a></dt>
+<dd><p>Forward return predictions from the factor regression model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.R_fut">
+<span class="sig-name descname"><span class="pre">R_fut</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.R_fut" title="Link to this definition">#</a></dt>
+<dd><p>Forward observed fractional returns for the requested date window.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.R_pred">
+<span class="sig-name descname"><span class="pre">R_pred</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.R_pred" title="Link to this definition">#</a></dt>
+<dd><p>Model-predicted returns for the historical block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.V">
+<span class="sig-name descname"><span class="pre">V</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.V" title="Link to this definition">#</a></dt>
+<dd><p>Historical volume block aligned with the price and return blocks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.X">
+<span class="sig-name descname"><span class="pre">X</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.X" title="Link to this definition">#</a></dt>
+<dd><p>Regression design matrix of PCA factors with a constant column.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.adjusted_components">
+<span class="sig-name descname"><span class="pre">adjusted_components</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.adjusted_components" title="Link to this definition">#</a></dt>
+<dd><p>PCA loadings adjusted by input-column standard deviations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.agg_table_param_id">
+<span class="sig-name descname"><span class="pre">agg_table_param_id</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.agg_table_param_id" title="Link to this definition">#</a></dt>
+<dd><p>Degradation statistics aggregated by parameter set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.agg_table_symbol">
+<span class="sig-name descname"><span class="pre">agg_table_symbol</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.agg_table_symbol" title="Link to this definition">#</a></dt>
+<dd><p>Degradation statistics aggregated by symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.apply_agg_filter">
+<span class="sig-name descname"><span class="pre">apply_agg_filter</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.apply_agg_filter" title="Link to this definition">#</a></dt>
+<dd><p>Whether to apply the aggregated degradation filter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.best_halflives">
+<span class="sig-name descname"><span class="pre">best_halflives</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.best_halflives" title="Link to this definition">#</a></dt>
+<dd><p>Selected holding durations in observations, derived from OU half-lives.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.best_res">
+<span class="sig-name descname"><span class="pre">best_res</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.best_res" title="Link to this definition">#</a></dt>
+<dd><p>Selected instrument strategies and their fitted metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.best_res_gen_pnls">
+<span class="sig-name descname"><span class="pre">best_res_gen_pnls</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.best_res_gen_pnls" title="Link to this definition">#</a></dt>
+<dd><p>Per-strategy PnL series for generated forward signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.best_res_gen_positions">
+<span class="sig-name descname"><span class="pre">best_res_gen_positions</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.best_res_gen_positions" title="Link to this definition">#</a></dt>
+<dd><p>Per-strategy position series for generated forward signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.best_res_gen_zscores">
+<span class="sig-name descname"><span class="pre">best_res_gen_zscores</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.best_res_gen_zscores" title="Link to this definition">#</a></dt>
+<dd><p>Per-strategy z-score series for generated forward signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.best_res_idx">
+<span class="sig-name descname"><span class="pre">best_res_idx</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.best_res_idx" title="Link to this definition">#</a></dt>
+<dd><p>Row indices of the selected strategies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.calc_adv_score">
+<span class="sig-name descname"><span class="pre">calc_adv_score</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.calc_adv_score" title="Link to this definition">#</a></dt>
+<dd><p>Whether to calculate the advanced strategy score.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.clf_prob_y">
+<span class="sig-name descname"><span class="pre">clf_prob_y</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.clf_prob_y" title="Link to this definition">#</a></dt>
+<dd><p>Target metric column used by the classifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.clf_profita_offset">
+<span class="sig-name descname"><span class="pre">clf_profita_offset</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.clf_profita_offset" title="Link to this definition">#</a></dt>
+<dd><p>Offset applied to the classifier’s probability score.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.dailyret">
+<span class="sig-name descname"><span class="pre">dailyret</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.dailyret" title="Link to this definition">#</a></dt>
+<dd><p>Fractional returns per input-data interval.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.dates_as_strings">
+<span class="sig-name descname"><span class="pre">dates_as_strings</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.dates_as_strings" title="Link to this definition">#</a></dt>
+<dd><p>Unique input dates formatted as YYYY-MM-DD.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.dd_duration_quantile_limit">
+<span class="sig-name descname"><span class="pre">dd_duration_quantile_limit</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.dd_duration_quantile_limit" title="Link to this definition">#</a></dt>
+<dd><p>Optional quantile cutoff for drawdown duration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.dd_duration_tolerance">
+<span class="sig-name descname"><span class="pre">dd_duration_tolerance</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.dd_duration_tolerance" title="Link to this definition">#</a></dt>
+<dd><p>Maximum tolerated drawdown duration in observations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.df">
+<span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.df" title="Link to this definition">#</a></dt>
+<dd><p>Input price data after limited forward filling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.df_cumprod_R">
+<span class="sig-name descname"><span class="pre">df_cumprod_R</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.df_cumprod_R" title="Link to this definition">#</a></dt>
+<dd><p>Cumulative growth series from observed returns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.df_cumprod_factor">
+<span class="sig-name descname"><span class="pre">df_cumprod_factor</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.df_cumprod_factor" title="Link to this definition">#</a></dt>
+<dd><p>Cumulative growth series from model-predicted returns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.df_cumsum_R">
+<span class="sig-name descname"><span class="pre">df_cumsum_R</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.df_cumsum_R" title="Link to this definition">#</a></dt>
+<dd><p>Cumulative sums of observed returns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.df_cumsum_factor">
+<span class="sig-name descname"><span class="pre">df_cumsum_factor</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.df_cumsum_factor" title="Link to this definition">#</a></dt>
+<dd><p>Cumulative sums of model-predicted returns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.droplist">
+<span class="sig-name descname"><span class="pre">droplist</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.droplist" title="Link to this definition">#</a></dt>
+<dd><p>Input columns explicitly excluded during preprocessing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.enable_skew">
+<span class="sig-name descname"><span class="pre">enable_skew</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.enable_skew" title="Link to this definition">#</a></dt>
+<dd><p>Whether to use skew-aware trading-signal thresholds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.end_index">
+<span class="sig-name descname"><span class="pre">end_index</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.end_index" title="Link to this definition">#</a></dt>
+<dd><p>Exclusive end index of the configured evaluation span.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.evaluation_period">
+<span class="sig-name descname"><span class="pre">evaluation_period</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.evaluation_period" title="Link to this definition">#</a></dt>
+<dd><p>Evaluation duration in input observations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.evaluate_ids">
+<span class="sig-name descname"><span class="pre">evaluate_ids</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.evaluate_ids" title="Link to this definition">#</a></dt>
+<dd><p>Input row indices at which strategies are evaluated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.extended_metrics_df">
+<span class="sig-name descname"><span class="pre">extended_metrics_df</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.extended_metrics_df" title="Link to this definition">#</a></dt>
+<dd><p>Optional extended strategy metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.filt_by1_ascend">
+<span class="sig-name descname"><span class="pre">filt_by1_ascend</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.filt_by1_ascend" title="Link to this definition">#</a></dt>
+<dd><p>Whether the primary ranking metric is sorted ascending.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.filt_str1">
+<span class="sig-name descname"><span class="pre">filt_str1</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.filt_str1" title="Link to this definition">#</a></dt>
+<dd><p>Primary strategy-ranking metric column.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.filt_str2">
+<span class="sig-name descname"><span class="pre">filt_str2</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.filt_str2" title="Link to this definition">#</a></dt>
+<dd><p>Secondary strategy-filtering metric column.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.filter_nan_init_degradation">
+<span class="sig-name descname"><span class="pre">filter_nan_init_degradation</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.filter_nan_init_degradation" title="Link to this definition">#</a></dt>
+<dd><p>Whether to filter missing initial-degradation metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.flip_rate_bp_thresh">
+<span class="sig-name descname"><span class="pre">flip_rate_bp_thresh</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.flip_rate_bp_thresh" title="Link to this definition">#</a></dt>
+<dd><p>Maximum permitted benchmark-relative position-flip rate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.focus_symbol">
+<span class="sig-name descname"><span class="pre">focus_symbol</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.focus_symbol" title="Link to this definition">#</a></dt>
+<dd><p>Optional symbol to retain in the selected strategy set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.fwd_deg_start_mult">
+<span class="sig-name descname"><span class="pre">fwd_deg_start_mult</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.fwd_deg_start_mult" title="Link to this definition">#</a></dt>
+<dd><p>Multipliers controlling the start of forward-degradation windows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.fwd_deg_stride_mult">
+<span class="sig-name descname"><span class="pre">fwd_deg_stride_mult</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.fwd_deg_stride_mult" title="Link to this definition">#</a></dt>
+<dd><p>Multipliers controlling the stride of forward-degradation windows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.get_clf_prob">
+<span class="sig-name descname"><span class="pre">get_clf_prob</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.get_clf_prob" title="Link to this definition">#</a></dt>
+<dd><p>Whether to calculate classifier probabilities for selected strategies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.get_post_filter_agg_tables">
+<span class="sig-name descname"><span class="pre">get_post_filter_agg_tables</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.get_post_filter_agg_tables" title="Link to this definition">#</a></dt>
+<dd><p>Whether to build degradation tables after filtering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.get_pre_filter_agg_tables">
+<span class="sig-name descname"><span class="pre">get_pre_filter_agg_tables</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.get_pre_filter_agg_tables" title="Link to this definition">#</a></dt>
+<dd><p>Whether to build degradation tables before filtering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.grid_opt_str">
+<span class="sig-name descname"><span class="pre">grid_opt_str</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.grid_opt_str" title="Link to this definition">#</a></dt>
+<dd><p>Metric column optimized during parameter grid search.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.gs_monitor_forward_degradation">
+<span class="sig-name descname"><span class="pre">gs_monitor_forward_degradation</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.gs_monitor_forward_degradation" title="Link to this definition">#</a></dt>
+<dd><p>Whether to evaluate grid-search degradation out of sample.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.gs_res_all">
+<span class="sig-name descname"><span class="pre">gs_res_all</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.gs_res_all" title="Link to this definition">#</a></dt>
+<dd><p>Historical grid-search results for selected strategies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.gs_res_all_fwd_deg">
+<span class="sig-name descname"><span class="pre">gs_res_all_fwd_deg</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.gs_res_all_fwd_deg" title="Link to this definition">#</a></dt>
+<dd><p>Forward-degradation grid-search results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.hl_max">
+<span class="sig-name descname"><span class="pre">hl_max</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.hl_max" title="Link to this definition">#</a></dt>
+<dd><p>Maximum configured half-life setting in observations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.hlw">
+<span class="sig-name descname"><span class="pre">hlw</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.hlw" title="Link to this definition">#</a></dt>
+<dd><p>Multiplier converting OU half-life to a holding duration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.holding_period">
+<span class="sig-name descname"><span class="pre">holding_period</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.holding_period" title="Link to this definition">#</a></dt>
+<dd><p>Number of nonzero portfolio-return observations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.hurst_lags">
+<span class="sig-name descname"><span class="pre">hurst_lags</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.hurst_lags" title="Link to this definition">#</a></dt>
+<dd><p>Maximum lag count used in Hurst-exponent analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.indicators">
+<span class="sig-name descname"><span class="pre">indicators</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.indicators" title="Link to this definition">#</a></dt>
+<dd><p>Optional indicator data used to restrict screening symbols.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.init_OU_sim_ngs">
+<span class="sig-name descname"><span class="pre">init_OU_sim_ngs</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.init_OU_sim_ngs" title="Link to this definition">#</a></dt>
+<dd><p>Number of OU simulation grid-search trials.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.init_kldro_adv_scale">
+<span class="sig-name descname"><span class="pre">init_kldro_adv_scale</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.init_kldro_adv_scale" title="Link to this definition">#</a></dt>
+<dd><p>Optional initial KL-DRO ranking scale factor for the advanced scoring function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.init_monitor_forward_degradation">
+<span class="sig-name descname"><span class="pre">init_monitor_forward_degradation</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.init_monitor_forward_degradation" title="Link to this definition">#</a></dt>
+<dd><p>Whether to measure initial forward degradation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.initial_ou_sim_enable">
+<span class="sig-name descname"><span class="pre">initial_ou_sim_enable</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.initial_ou_sim_enable" title="Link to this definition">#</a></dt>
+<dd><p>Whether to enable initial OU-process simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.kelly_scale">
+<span class="sig-name descname"><span class="pre">kelly_scale</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.kelly_scale" title="Link to this definition">#</a></dt>
+<dd><p>Blend weight for applying Kelly-based position scaling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.kelly_table">
+<span class="sig-name descname"><span class="pre">kelly_table</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.kelly_table" title="Link to this definition">#</a></dt>
+<dd><p>Per-strategy capital scaling factors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray or float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.kelly_table_sign">
+<span class="sig-name descname"><span class="pre">kelly_table_sign</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.kelly_table_sign" title="Link to this definition">#</a></dt>
+<dd><p>Signs of the estimated per-strategy Kelly factors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.kelly_use_covar">
+<span class="sig-name descname"><span class="pre">kelly_use_covar</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.kelly_use_covar" title="Link to this definition">#</a></dt>
+<dd><p>Whether to estimate Kelly factors using the return covariance matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.kelly_use_sign">
+<span class="sig-name descname"><span class="pre">kelly_use_sign</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.kelly_use_sign" title="Link to this definition">#</a></dt>
+<dd><p>Whether to apply estimated Kelly-factor signs to allocations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.kpss_lags">
+<span class="sig-name descname"><span class="pre">kpss_lags</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.kpss_lags" title="Link to this definition">#</a></dt>
+<dd><p>Lag setting for the KPSS stationarity test.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.lookback">
+<span class="sig-name descname"><span class="pre">lookback</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.lookback" title="Link to this definition">#</a></dt>
+<dd><p>Historical window length in input observations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.max_dd_quantile_limit">
+<span class="sig-name descname"><span class="pre">max_dd_quantile_limit</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.max_dd_quantile_limit" title="Link to this definition">#</a></dt>
+<dd><p>Optional quantile cutoff for maximum drawdown.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.max_dd_tolerance">
+<span class="sig-name descname"><span class="pre">max_dd_tolerance</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.max_dd_tolerance" title="Link to this definition">#</a></dt>
+<dd><p>Minimum tolerated drawdown as a fractional return.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.mix_proxy_for_opt">
+<span class="sig-name descname"><span class="pre">mix_proxy_for_opt</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.mix_proxy_for_opt" title="Link to this definition">#</a></dt>
+<dd><p>Weight for proxy-backtest metrics in parameter optimization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.mu_masking_factor">
+<span class="sig-name descname"><span class="pre">mu_masking_factor</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.mu_masking_factor" title="Link to this definition">#</a></dt>
+<dd><p>Threshold multiplier for filtering OU drift estimates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.nan_rate_thresh">
+<span class="sig-name descname"><span class="pre">nan_rate_thresh</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.nan_rate_thresh" title="Link to this definition">#</a></dt>
+<dd><p>Maximum tolerated missing-value rate in degradation metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.ntrades_sigma">
+<span class="sig-name descname"><span class="pre">ntrades_sigma</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.ntrades_sigma" title="Link to this definition">#</a></dt>
+<dd><p>Threshold multiplier used for trade-count filtering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.num_factors">
+<span class="sig-name descname"><span class="pre">num_factors</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.num_factors" title="Link to this definition">#</a></dt>
+<dd><p>Number of PCA factors used in the regression model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.num_penu">
+<span class="sig-name descname"><span class="pre">num_penu</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.num_penu" title="Link to this definition">#</a></dt>
+<dd><p>Number of symbols selected from each end of the PC1 ranking.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.offset_period">
+<span class="sig-name descname"><span class="pre">offset_period</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.offset_period" title="Link to this definition">#</a></dt>
+<dd><p>Evaluation-start offset in input observations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.oos_filt_by">
+<span class="sig-name descname"><span class="pre">oos_filt_by</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.oos_filt_by" title="Link to this definition">#</a></dt>
+<dd><p>Metric column used to filter out-of-sample results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.oos_filt_by_thresh">
+<span class="sig-name descname"><span class="pre">oos_filt_by_thresh</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.oos_filt_by_thresh" title="Link to this definition">#</a></dt>
+<dd><p>Minimum accepted value for the out-of-sample filter metric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.opt_entry_exit">
+<span class="sig-name descname"><span class="pre">opt_entry_exit</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.opt_entry_exit" title="Link to this definition">#</a></dt>
+<dd><p>Whether to optimize entry and exit thresholds on simulated OU paths.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.params">
+<span class="sig-name descname"><span class="pre">params</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.params" title="Link to this definition">#</a></dt>
+<dd><p>Six trading parameters used to generate a single-stock signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.params_types">
+<span class="sig-name descname"><span class="pre">params_types</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.params_types" title="Link to this definition">#</a></dt>
+<dd><p>Parameter-set family used for the initial signal grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.params_types_ee">
+<span class="sig-name descname"><span class="pre">params_types_ee</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.params_types_ee" title="Link to this definition">#</a></dt>
+<dd><p>Parameter-set family used for entry/exit optimization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.paramslist1">
+<span class="sig-name descname"><span class="pre">paramslist1</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.paramslist1" title="Link to this definition">#</a></dt>
+<dd><p>Parameter configurations evaluated during initial screening.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.past_n_periods">
+<span class="sig-name descname"><span class="pre">past_n_periods</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.past_n_periods" title="Link to this definition">#</a></dt>
+<dd><p>Number of recent position observations used for direction selection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.pc1_loading">
+<span class="sig-name descname"><span class="pre">pc1_loading</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.pc1_loading" title="Link to this definition">#</a></dt>
+<dd><p>Optional per-symbol variance-explained scores used for PC1-based screening.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.Series or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.pca">
+<span class="sig-name descname"><span class="pre">pca</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.pca" title="Link to this definition">#</a></dt>
+<dd><p>Fitted principal component analysis model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>PCA</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.penu_entries">
+<span class="sig-name descname"><span class="pre">penu_entries</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.penu_entries" title="Link to this definition">#</a></dt>
+<dd><p>Symbols retained for the downstream strategy analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.Index</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.pnls">
+<span class="sig-name descname"><span class="pre">pnls</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.pnls" title="Link to this definition">#</a></dt>
+<dd><p>Per-symbol PnL results from the initial screening stage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.positionsTable">
+<span class="sig-name descname"><span class="pre">positionsTable</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.positionsTable" title="Link to this definition">#</a></dt>
+<dd><p>Portfolio position weights indexed by date and input symbol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.post_filter_using_init_degradation">
+<span class="sig-name descname"><span class="pre">post_filter_using_init_degradation</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.post_filter_using_init_degradation" title="Link to this definition">#</a></dt>
+<dd><p>Whether to apply initial-degradation results as a post-filter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.pred_proba_classifier_coefs">
+<span class="sig-name descname"><span class="pre">pred_proba_classifier_coefs</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.pred_proba_classifier_coefs" title="Link to this definition">#</a></dt>
+<dd><p>Stored classifier probability-model coefficients.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.profit_bench_with_factors">
+<span class="sig-name descname"><span class="pre">profit_bench_with_factors</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.profit_bench_with_factors" title="Link to this definition">#</a></dt>
+<dd><p>Whether benchmark profits use model-predicted factor returns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.res_init_fwd_deg">
+<span class="sig-name descname"><span class="pre">res_init_fwd_deg</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.res_init_fwd_deg" title="Link to this definition">#</a></dt>
+<dd><p>Initial forward-degradation results by strategy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.res_pen_filter">
+<span class="sig-name descname"><span class="pre">res_pen_filter</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.res_pen_filter" title="Link to this definition">#</a></dt>
+<dd><p>Strategy results after applying configured screening filters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.ret">
+<span class="sig-name descname"><span class="pre">ret</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.ret" title="Link to this definition">#</a></dt>
+<dd><p>Portfolio returns per input-data interval.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.run_grid_search">
+<span class="sig-name descname"><span class="pre">run_grid_search</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.run_grid_search" title="Link to this definition">#</a></dt>
+<dd><p>Whether to run parameter grid searches for selected strategies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.save_grid_search_res">
+<span class="sig-name descname"><span class="pre">save_grid_search_res</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.save_grid_search_res" title="Link to this definition">#</a></dt>
+<dd><p>Whether to retain detailed grid-search result tables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.score_by1">
+<span class="sig-name descname"><span class="pre">score_by1</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.score_by1" title="Link to this definition">#</a></dt>
+<dd><p>Whether the primary ranking uses the configured score function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.score_coef">
+<span class="sig-name descname"><span class="pre">score_coef</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.score_coef" title="Link to this definition">#</a></dt>
+<dd><p>Coefficient used to combine ranking metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.sectors_best_res">
+<span class="sig-name descname"><span class="pre">sectors_best_res</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.sectors_best_res" title="Link to this definition">#</a></dt>
+<dd><p>Sector information for selected symbols.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.set_filter_by2_thresh">
+<span class="sig-name descname"><span class="pre">set_filter_by2_thresh</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.set_filter_by2_thresh" title="Link to this definition">#</a></dt>
+<dd><p>Explicit threshold for the secondary filtering metric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.sigma_masking_factor">
+<span class="sig-name descname"><span class="pre">sigma_masking_factor</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.sigma_masking_factor" title="Link to this definition">#</a></dt>
+<dd><p>Threshold multiplier for filtering OU volatility estimates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.signal_freq">
+<span class="sig-name descname"><span class="pre">signal_freq</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.signal_freq" title="Link to this definition">#</a></dt>
+<dd><p>Pandas frequency string for signal-date generation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.signal_length">
+<span class="sig-name descname"><span class="pre">signal_length</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.signal_length" title="Link to this definition">#</a></dt>
+<dd><p>Signal or holding-window length in scheduled observations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.sort_by0">
+<span class="sig-name descname"><span class="pre">sort_by0</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.sort_by0" title="Link to this definition">#</a></dt>
+<dd><p>Optional preliminary sort column for strategy selection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.sort_by0_ascend">
+<span class="sig-name descname"><span class="pre">sort_by0_ascend</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.sort_by0_ascend" title="Link to this definition">#</a></dt>
+<dd><p>Whether the preliminary sort is ascending.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.stride">
+<span class="sig-name descname"><span class="pre">stride</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.stride" title="Link to this definition">#</a></dt>
+<dd><p>Step size in input observations between strategy evaluations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.threshold_ADF_pval">
+<span class="sig-name descname"><span class="pre">threshold_ADF_pval</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.threshold_ADF_pval" title="Link to this definition">#</a></dt>
+<dd><p>Maximum ADF p-value allowed in stationarity screening.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.threshold_isna">
+<span class="sig-name descname"><span class="pre">threshold_isna</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.threshold_isna" title="Link to this definition">#</a></dt>
+<dd><p>Maximum missing-data fraction allowed per input column.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.threshold_zeroR">
+<span class="sig-name descname"><span class="pre">threshold_zeroR</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.threshold_zeroR" title="Link to this definition">#</a></dt>
+<dd><p>Maximum zero-return fraction allowed per input column.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.ticker_list_res">
+<span class="sig-name descname"><span class="pre">ticker_list_res</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.ticker_list_res" title="Link to this definition">#</a></dt>
+<dd><p>Per-symbol results from the initial screening stage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.top_n">
+<span class="sig-name descname"><span class="pre">top_n</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.top_n" title="Link to this definition">#</a></dt>
+<dd><p>Maximum number of strategies selected for evaluation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.update_zscore_metrics_after_gs">
+<span class="sig-name descname"><span class="pre">update_zscore_metrics_after_gs</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.update_zscore_metrics_after_gs" title="Link to this definition">#</a></dt>
+<dd><p>Whether to refresh signal metrics after grid search.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.use_RxV_for_PCA">
+<span class="sig-name descname"><span class="pre">use_RxV_for_PCA</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.use_RxV_for_PCA" title="Link to this definition">#</a></dt>
+<dd><p>Whether PCA is applied to the return-volume product.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.use_agg_filter">
+<span class="sig-name descname"><span class="pre">use_agg_filter</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.use_agg_filter" title="Link to this definition">#</a></dt>
+<dd><p>Whether aggregated degradation statistics are used for filtering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.use_all_labels">
+<span class="sig-name descname"><span class="pre">use_all_labels</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.use_all_labels" title="Link to this definition">#</a></dt>
+<dd><p>Whether to retain every eligible symbol before downstream selection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.use_covariance_weights">
+<span class="sig-name descname"><span class="pre">use_covariance_weights</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.use_covariance_weights" title="Link to this definition">#</a></dt>
+<dd><p>Optional configuration for time-dependent PCA row weights.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.use_extended_backtest_metrics">
+<span class="sig-name descname"><span class="pre">use_extended_backtest_metrics</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.use_extended_backtest_metrics" title="Link to this definition">#</a></dt>
+<dd><p>Whether to calculate extended backtest statistics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.use_factor_model_for_gs">
+<span class="sig-name descname"><span class="pre">use_factor_model_for_gs</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.use_factor_model_for_gs" title="Link to this definition">#</a></dt>
+<dd><p>Whether grid search uses model-predicted factor prices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.use_gs_kldro_for_optima">
+<span class="sig-name descname"><span class="pre">use_gs_kldro_for_optima</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.use_gs_kldro_for_optima" title="Link to this definition">#</a></dt>
+<dd><p>Whether KL-DRO metrics determine grid-search optima.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.use_halflife">
+<span class="sig-name descname"><span class="pre">use_halflife</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.use_halflife" title="Link to this definition">#</a></dt>
+<dd><p>Whether position durations are based on estimated OU half-lives.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.use_init_kldro_for_ranking">
+<span class="sig-name descname"><span class="pre">use_init_kldro_for_ranking</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.use_init_kldro_for_ranking" title="Link to this definition">#</a></dt>
+<dd><p>Whether initial KL-DRO metrics determine strategy ranking.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.use_pc1_explained_ratio">
+<span class="sig-name descname"><span class="pre">use_pc1_explained_ratio</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.use_pc1_explained_ratio" title="Link to this definition">#</a></dt>
+<dd><p>Whether symbols are selected by variance explained by PC1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.use_quantile_filter_by2">
+<span class="sig-name descname"><span class="pre">use_quantile_filter_by2</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.use_quantile_filter_by2" title="Link to this definition">#</a></dt>
+<dd><p>Optional quantile for the secondary metric filter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.use_top_ranking">
+<span class="sig-name descname"><span class="pre">use_top_ranking</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.use_top_ranking" title="Link to this definition">#</a></dt>
+<dd><p>Whether to select the highest rather than lowest PC1 ranking.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.volumes">
+<span class="sig-name descname"><span class="pre">volumes</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.volumes" title="Link to this definition">#</a></dt>
+<dd><p>Input trading-volume data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.z_scores">
+<span class="sig-name descname"><span class="pre">z_scores</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.z_scores" title="Link to this definition">#</a></dt>
+<dd><p>Per-strategy z-score and position series from the screening stage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Single_algo_Class.SingleBNBTrader.z_scores_init_fwd_deg">
+<span class="sig-name descname"><span class="pre">z_scores_init_fwd_deg</span></span><a class="headerlink" href="#Single_algo_Class.SingleBNBTrader.z_scores_init_fwd_deg" title="Link to this definition">#</a></dt>
+<dd><p>Initial forward-degradation z-score and position series.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.preprocess_data.html#Single_algo_Class.SingleBNBTrader.preprocess_data" title="Single_algo_Class.SingleBNBTrader.preprocess_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.preprocess_data</span></code></a></p></td>
+<td><p>Clean the lookback return window ending before row <code class="docutils literal notranslate"><span class="pre">t</span></code> (exclusive) and return its filtered fractional returns.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.preprocess_volumes.html#Single_algo_Class.SingleBNBTrader.preprocess_volumes" title="Single_algo_Class.SingleBNBTrader.preprocess_volumes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.preprocess_volumes</span></code></a></p></td>
+<td><p>Align volume and price lookback windows ending before row <code class="docutils literal notranslate"><span class="pre">t</span></code>; stores the blocks in <code class="docutils literal notranslate"><span class="pre">self.V</span></code> and <code class="docutils literal notranslate"><span class="pre">self.P</span></code> and returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.pca_transform.html#Single_algo_Class.SingleBNBTrader.pca_transform" title="Single_algo_Class.SingleBNBTrader.pca_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.pca_transform</span></code></a></p></td>
+<td><p>Fit PCA to the configured return or volume-based matrix and store its loadings and selected symbols; returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.train_model.html#Single_algo_Class.SingleBNBTrader.train_model" title="Single_algo_Class.SingleBNBTrader.train_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.train_model</span></code></a></p></td>
+<td><p>Fit the multi-output regression from <code class="docutils literal notranslate"><span class="pre">self.X</span></code> to <code class="docutils literal notranslate"><span class="pre">self.R</span></code> and return fitted predictions as a DataFrame.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_instruments.html#Single_algo_Class.SingleBNBTrader.evaluate_instruments" title="Single_algo_Class.SingleBNBTrader.evaluate_instruments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.evaluate_instruments</span></code></a></p></td>
+<td><p>Build cumulative sums and growth series for observed and modeled returns; stores the results and returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.generate_positions.html#Single_algo_Class.SingleBNBTrader.generate_positions" title="Single_algo_Class.SingleBNBTrader.generate_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.generate_positions</span></code></a></p></td>
+<td><p>Populate <code class="docutils literal notranslate"><span class="pre">self.positionsTable</span></code> at row <code class="docutils literal notranslate"><span class="pre">t</span></code> from the selected strategies; returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.preprocess_forward_data.html#Single_algo_Class.SingleBNBTrader.preprocess_forward_data" title="Single_algo_Class.SingleBNBTrader.preprocess_forward_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.preprocess_forward_data</span></code></a></p></td>
+<td><p>Prepare forward returns and factor predictions for the date bounds, using <code class="docutils literal notranslate"><span class="pre">backwindow</span></code> and <code class="docutils literal notranslate"><span class="pre">signal_length</span></code>; return both DataFrames.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.generate_Buy_Hold_benchmark.html#Single_algo_Class.SingleBNBTrader.generate_Buy_Hold_benchmark" title="Single_algo_Class.SingleBNBTrader.generate_Buy_Hold_benchmark"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.generate_Buy_Hold_benchmark</span></code></a></p></td>
+<td><p>Add buy-and-hold profits for symbols in <code class="docutils literal notranslate"><span class="pre">self.best_res</span></code> over the requested date bounds at <code class="docutils literal notranslate"><span class="pre">signal_freq</span></code>; returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.run_gs_and_eval.html#Single_algo_Class.SingleBNBTrader.run_gs_and_eval" title="Single_algo_Class.SingleBNBTrader.run_gs_and_eval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.run_gs_and_eval</span></code></a></p></td>
+<td><p>Optimize and backtest selected symbols; <code class="docutils literal notranslate"><span class="pre">extended_metrics</span></code> and <code class="docutils literal notranslate"><span class="pre">save_grid_search_res</span></code> control stored details; returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.run_gs_forward_degradation.html#Single_algo_Class.SingleBNBTrader.run_gs_forward_degradation" title="Single_algo_Class.SingleBNBTrader.run_gs_forward_degradation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.run_gs_forward_degradation</span></code></a></p></td>
+<td><p>Optimize over <code class="docutils literal notranslate"><span class="pre">start_Timestamp</span></code>/<code class="docutils literal notranslate"><span class="pre">end_Timestamp</span></code> and store forward results; <code class="docutils literal notranslate"><span class="pre">extended_metrics</span></code> and <code class="docutils literal notranslate"><span class="pre">save_grid_search_res</span></code> control details; returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.run_init_forward_degradation.html#Single_algo_Class.SingleBNBTrader.run_init_forward_degradation" title="Single_algo_Class.SingleBNBTrader.run_init_forward_degradation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.run_init_forward_degradation</span></code></a></p></td>
+<td><p>Backtest initial parameters over <code class="docutils literal notranslate"><span class="pre">start_Timestamp</span></code>/<code class="docutils literal notranslate"><span class="pre">end_Timestamp</span></code>; <code class="docutils literal notranslate"><span class="pre">extended_metrics</span></code> controls stored statistics; returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.gen_kelly_factor_table.html#Single_algo_Class.SingleBNBTrader.gen_kelly_factor_table" title="Single_algo_Class.SingleBNBTrader.gen_kelly_factor_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.gen_kelly_factor_table</span></code></a></p></td>
+<td><p>Create Kelly allocation factors from historical grid-search PnL, optionally using covariance and factor signs; returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.update_zscore_metrics.html#Single_algo_Class.SingleBNBTrader.update_zscore_metrics" title="Single_algo_Class.SingleBNBTrader.update_zscore_metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.update_zscore_metrics</span></code></a></p></td>
+<td><p>Recompute stationarity, OU, Hurst, and KPSS metrics for optimized signals using <code class="docutils literal notranslate"><span class="pre">hurst_max_lags</span></code> and <code class="docutils literal notranslate"><span class="pre">kpss_lags</span></code>; updates <code class="docutils literal notranslate"><span class="pre">self.best_res</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_forward_date_ranges.html#Single_algo_Class.SingleBNBTrader.get_forward_date_ranges" title="Single_algo_Class.SingleBNBTrader.get_forward_date_ranges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.get_forward_date_ranges</span></code></a></p></td>
+<td><p>Build signal and generation date ranges for the requested bounds and lookback <code class="docutils literal notranslate"><span class="pre">window</span></code>; return both date indexes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.generate_forward_trading_signals.html#Single_algo_Class.SingleBNBTrader.generate_forward_trading_signals" title="Single_algo_Class.SingleBNBTrader.generate_forward_trading_signals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.generate_forward_trading_signals</span></code></a></p></td>
+<td><p>Generate forward z-score and position series from symbols, parameter sets, price data, and date/frequency settings; return both series lists.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_forward_trading_signals.html#Single_algo_Class.SingleBNBTrader.evaluate_forward_trading_signals" title="Single_algo_Class.SingleBNBTrader.evaluate_forward_trading_signals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.evaluate_forward_trading_signals</span></code></a></p></td>
+<td><p>Backtest each generated forward position series and store profit and Sharpe metrics in <code class="docutils literal notranslate"><span class="pre">self.best_res</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_position_table.html#Single_algo_Class.SingleBNBTrader.evaluate_position_table" title="Single_algo_Class.SingleBNBTrader.evaluate_position_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.evaluate_position_table</span></code></a></p></td>
+<td><p>Evaluate portfolio returns from <code class="docutils literal notranslate"><span class="pre">self.positionsTable</span></code> and optionally return profit, Sharpe, and return statistics when <code class="docutils literal notranslate"><span class="pre">return_metrics</span></code> is true.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.evaluate_extended_portfolio_metrics.html#Single_algo_Class.SingleBNBTrader.evaluate_extended_portfolio_metrics" title="Single_algo_Class.SingleBNBTrader.evaluate_extended_portfolio_metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.evaluate_extended_portfolio_metrics</span></code></a></p></td>
+<td><p>Calculate extended portfolio metrics with the given risk-free rate and annualization factor; return the metrics dictionary.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.plot.html#Single_algo_Class.SingleBNBTrader.plot" title="Single_algo_Class.SingleBNBTrader.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.plot</span></code></a></p></td>
+<td><p>Display portfolio returns, positions, equity curve, and benchmark-versus-grid-search profit plots; returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.save.html#Single_algo_Class.SingleBNBTrader.save" title="Single_algo_Class.SingleBNBTrader.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.save</span></code></a></p></td>
+<td><p>Save instance attributes to <code class="docutils literal notranslate"><span class="pre">savename</span></code> and, if <code class="docutils literal notranslate"><span class="pre">save_df</span></code> is true, DataFrames to a companion file; <code class="docutils literal notranslate"><span class="pre">verbose</span></code> and <code class="docutils literal notranslate"><span class="pre">save_zscores</span></code> control output and signal storage.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.load.html#Single_algo_Class.SingleBNBTrader.load" title="Single_algo_Class.SingleBNBTrader.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.load</span></code></a></p></td>
+<td><p>Load saved attributes from <code class="docutils literal notranslate"><span class="pre">loadname</span></code> and optionally companion DataFrames via <code class="docutils literal notranslate"><span class="pre">load_df</span></code>; <code class="docutils literal notranslate"><span class="pre">verbose</span></code> enables progress output.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_backtest_date_info.html#Single_algo_Class.SingleBNBTrader.get_backtest_date_info" title="Single_algo_Class.SingleBNBTrader.get_backtest_date_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.get_backtest_date_info</span></code></a></p></td>
+<td><p>Print input date coverage, approximate periods per day, and the configured evaluation indices; returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.update_best_res_positions_using_subset.html#Single_algo_Class.SingleBNBTrader.update_best_res_positions_using_subset" title="Single_algo_Class.SingleBNBTrader.update_best_res_positions_using_subset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.update_best_res_positions_using_subset</span></code></a></p></td>
+<td><p>Evaluate latest-date signals from <code class="docutils literal notranslate"><span class="pre">df_sub</span></code> (optionally using factors, plots/HTML, diversification, and extended metrics); return the results table, z-scores, and positions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.process_model_at_timestep.html#Single_algo_Class.SingleBNBTrader.process_model_at_timestep" title="Single_algo_Class.SingleBNBTrader.process_model_at_timestep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.process_model_at_timestep</span></code></a></p></td>
+<td><p>Rebuild the return window and factor model for row index <code class="docutils literal notranslate"><span class="pre">t</span></code>; updates model attributes and returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.reoptimize_trading_params.html#Single_algo_Class.SingleBNBTrader.reoptimize_trading_params" title="Single_algo_Class.SingleBNBTrader.reoptimize_trading_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.reoptimize_trading_params</span></code></a></p></td>
+<td><p>Rerun the configured parameter grid searches for selected strategies and refresh their metrics and Kelly factors.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_simulated_profit_metrics.html#Single_algo_Class.SingleBNBTrader.get_simulated_profit_metrics" title="Single_algo_Class.SingleBNBTrader.get_simulated_profit_metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.get_simulated_profit_metrics</span></code></a></p></td>
+<td><p>Estimate OU-simulated profit and Sharpe for each row's parameters in <code class="docutils literal notranslate"><span class="pre">pairlist</span></code>; return the DataFrame with metric columns added.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.get_profits_per_trade.html#Single_algo_Class.SingleBNBTrader.get_profits_per_trade" title="Single_algo_Class.SingleBNBTrader.get_profits_per_trade"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.get_profits_per_trade</span></code></a></p></td>
+<td><p>Compute benchmark profit per trade for screened symbols and store it in <code class="docutils literal notranslate"><span class="pre">self.ticker_list_res</span></code>; returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.use_classifier_get_prob_profita.html#Single_algo_Class.SingleBNBTrader.use_classifier_get_prob_profita" title="Single_algo_Class.SingleBNBTrader.use_classifier_get_prob_profita"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.use_classifier_get_prob_profita</span></code></a></p></td>
+<td><p>Train a profitability classifier using <code class="docutils literal notranslate"><span class="pre">self.clf_prob_y</span></code> and <code class="docutils literal notranslate"><span class="pre">self.clf_profita_offset</span></code>; stores probabilities and coefficients, returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.plot_prob_profita_model_coefs.html#Single_algo_Class.SingleBNBTrader.plot_prob_profita_model_coefs" title="Single_algo_Class.SingleBNBTrader.plot_prob_profita_model_coefs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.plot_prob_profita_model_coefs</span></code></a></p></td>
+<td><p>Plot all classifier coefficients and the ten largest by absolute value; returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.print_some_trader_settings.html#Single_algo_Class.SingleBNBTrader.print_some_trader_settings" title="Single_algo_Class.SingleBNBTrader.print_some_trader_settings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.print_some_trader_settings</span></code></a></p></td>
+<td><p>Print selected strategy settings and return their dictionary only when <code class="docutils literal notranslate"><span class="pre">return_dict</span></code> is true.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.diversify_best_res.html#Single_algo_Class.SingleBNBTrader.diversify_best_res" title="Single_algo_Class.SingleBNBTrader.diversify_best_res"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.diversify_best_res</span></code></a></p></td>
+<td><p>Select a diversified subset using selected-symbol sectors and return selections, sector data, and correlations; <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> configure the selection.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.aggregate_deg_stats.html#Single_algo_Class.SingleBNBTrader.aggregate_deg_stats" title="Single_algo_Class.SingleBNBTrader.aggregate_deg_stats"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.aggregate_deg_stats</span></code></a></p></td>
+<td><p>Aggregate forward-degradation metrics by parameter ID and symbol; return the enriched results and both summary tables.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.degradation_analysis_and_filter.html#Single_algo_Class.SingleBNBTrader.degradation_analysis_and_filter" title="Single_algo_Class.SingleBNBTrader.degradation_analysis_and_filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.degradation_analysis_and_filter</span></code></a></p></td>
+<td><p>Analyze in-sample versus forward metrics and optionally filter results; options control metric thresholds, aggregation, outliers, and filtering; returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.calc_gs_kldro_for_optima.html#Single_algo_Class.SingleBNBTrader.calc_gs_kldro_for_optima" title="Single_algo_Class.SingleBNBTrader.calc_gs_kldro_for_optima"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.calc_gs_kldro_for_optima</span></code></a></p></td>
+<td><p>Compute KL-DRO scores across train/forward parameter grids and update each strategy's selected backtest results; returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.plot_grid_search_surfaces.html#Single_algo_Class.SingleBNBTrader.plot_grid_search_surfaces" title="Single_algo_Class.SingleBNBTrader.plot_grid_search_surfaces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.plot_grid_search_surfaces</span></code></a></p></td>
+<td><p>Plot available training, forward, and KL-DRO parameter surfaces for strategy index <code class="docutils literal notranslate"><span class="pre">i</span></code>; returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.run.html#Single_algo_Class.SingleBNBTrader.run" title="Single_algo_Class.SingleBNBTrader.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleBNBTrader.run</span></code></a></p></td>
+<td><p>Run the configured rolling strategy screening, selection, optimization, and portfolio evaluation pipeline; returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">API reference</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="generated/single-bnb-trader/Single_algo_Class.SingleBNBTrader.preprocess_data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Single_algo_Class.SingleBNBTrader.preprocess_data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.MOLR"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.MOLR</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.MSM_features"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.MSM_features</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.OU_sim_mix"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.OU_sim_mix</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.P"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.P</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.PC1_sorted_labels_rank_lowest"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.PC1_sorted_labels_rank_lowest</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.Phi0_SE_masking_factor"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.Phi0_SE_masking_factor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.Phi1_SE_masking_factor"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.Phi1_SE_masking_factor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.R"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.R</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.R2_adj_masking_factor"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.R2_adj_masking_factor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.R_ewm_span_before_PCA"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.R_ewm_span_before_PCA</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.R_factor_fut"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.R_factor_fut</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.R_fut"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.R_fut</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.R_pred"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.R_pred</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.V"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.V</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.X"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.X</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.adjusted_components"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.adjusted_components</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.agg_table_param_id"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.agg_table_param_id</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.agg_table_symbol"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.agg_table_symbol</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.apply_agg_filter"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.apply_agg_filter</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.best_halflives"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.best_halflives</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.best_res"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.best_res</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.best_res_gen_pnls"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.best_res_gen_pnls</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.best_res_gen_positions"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.best_res_gen_positions</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.best_res_gen_zscores"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.best_res_gen_zscores</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.best_res_idx"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.best_res_idx</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.calc_adv_score"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.calc_adv_score</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.clf_prob_y"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.clf_prob_y</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.clf_profita_offset"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.clf_profita_offset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.dailyret"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.dailyret</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.dates_as_strings"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.dates_as_strings</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.dd_duration_quantile_limit"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.dd_duration_quantile_limit</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.dd_duration_tolerance"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.dd_duration_tolerance</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.df"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.df</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.df_cumprod_R"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.df_cumprod_R</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.df_cumprod_factor"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.df_cumprod_factor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.df_cumsum_R"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.df_cumsum_R</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.df_cumsum_factor"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.df_cumsum_factor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.droplist"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.droplist</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.enable_skew"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.enable_skew</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.end_index"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.end_index</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.evaluation_period"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.evaluation_period</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.evaluate_ids"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.evaluate_ids</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.extended_metrics_df"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.extended_metrics_df</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.filt_by1_ascend"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.filt_by1_ascend</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.filt_str1"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.filt_str1</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.filt_str2"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.filt_str2</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.filter_nan_init_degradation"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.filter_nan_init_degradation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.flip_rate_bp_thresh"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.flip_rate_bp_thresh</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.focus_symbol"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.focus_symbol</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.fwd_deg_start_mult"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.fwd_deg_start_mult</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.fwd_deg_stride_mult"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.fwd_deg_stride_mult</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.get_clf_prob"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.get_clf_prob</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.get_post_filter_agg_tables"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.get_post_filter_agg_tables</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.get_pre_filter_agg_tables"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.get_pre_filter_agg_tables</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.grid_opt_str"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.grid_opt_str</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.gs_monitor_forward_degradation"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.gs_monitor_forward_degradation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.gs_res_all"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.gs_res_all</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.gs_res_all_fwd_deg"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.gs_res_all_fwd_deg</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.hl_max"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.hl_max</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.hlw"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.hlw</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.holding_period"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.holding_period</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.hurst_lags"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.hurst_lags</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.indicators"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.indicators</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.init_OU_sim_ngs"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.init_OU_sim_ngs</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.init_kldro_adv_scale"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.init_kldro_adv_scale</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.init_monitor_forward_degradation"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.init_monitor_forward_degradation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.initial_ou_sim_enable"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.initial_ou_sim_enable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.kelly_scale"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.kelly_scale</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.kelly_table"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.kelly_table</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.kelly_table_sign"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.kelly_table_sign</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.kelly_use_covar"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.kelly_use_covar</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.kelly_use_sign"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.kelly_use_sign</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.kpss_lags"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.kpss_lags</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.lookback"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.lookback</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.max_dd_quantile_limit"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.max_dd_quantile_limit</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.max_dd_tolerance"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.max_dd_tolerance</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.mix_proxy_for_opt"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.mix_proxy_for_opt</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.mu_masking_factor"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.mu_masking_factor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.nan_rate_thresh"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.nan_rate_thresh</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.ntrades_sigma"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.ntrades_sigma</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.num_factors"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.num_factors</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.num_penu"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.num_penu</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.offset_period"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.offset_period</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.oos_filt_by"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.oos_filt_by</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.oos_filt_by_thresh"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.oos_filt_by_thresh</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.opt_entry_exit"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.opt_entry_exit</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.params"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.params</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.params_types"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.params_types</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.params_types_ee"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.params_types_ee</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.paramslist1"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.paramslist1</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.past_n_periods"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.past_n_periods</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.pc1_loading"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.pc1_loading</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.pca"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.pca</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.penu_entries"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.penu_entries</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.pnls"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.pnls</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.positionsTable"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.positionsTable</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.post_filter_using_init_degradation"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.post_filter_using_init_degradation</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.pred_proba_classifier_coefs"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.pred_proba_classifier_coefs</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.profit_bench_with_factors"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.profit_bench_with_factors</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.res_init_fwd_deg"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.res_init_fwd_deg</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.res_pen_filter"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.res_pen_filter</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.ret"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.ret</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.run_grid_search"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.run_grid_search</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.save_grid_search_res"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.save_grid_search_res</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.score_by1"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.score_by1</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.score_coef"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.score_coef</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.sectors_best_res"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.sectors_best_res</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.set_filter_by2_thresh"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.set_filter_by2_thresh</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.sigma_masking_factor"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.sigma_masking_factor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.signal_freq"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.signal_freq</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.signal_length"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.signal_length</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.sort_by0"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.sort_by0</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.sort_by0_ascend"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.sort_by0_ascend</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.stride"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.stride</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.threshold_ADF_pval"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.threshold_ADF_pval</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.threshold_isna"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.threshold_isna</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.threshold_zeroR"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.threshold_zeroR</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.ticker_list_res"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.ticker_list_res</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.top_n"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.top_n</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.update_zscore_metrics_after_gs"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.update_zscore_metrics_after_gs</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.use_RxV_for_PCA"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.use_RxV_for_PCA</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.use_agg_filter"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.use_agg_filter</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.use_all_labels"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.use_all_labels</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.use_covariance_weights"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.use_covariance_weights</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.use_extended_backtest_metrics"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.use_extended_backtest_metrics</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.use_factor_model_for_gs"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.use_factor_model_for_gs</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.use_gs_kldro_for_optima"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.use_gs_kldro_for_optima</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.use_halflife"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.use_halflife</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.use_init_kldro_for_ranking"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.use_init_kldro_for_ranking</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.use_pc1_explained_ratio"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.use_pc1_explained_ratio</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.use_quantile_filter_by2"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.use_quantile_filter_by2</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.use_top_ranking"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.use_top_ranking</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.volumes"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.volumes</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.z_scores"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.z_scores</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Single_algo_Class.SingleBNBTrader.z_scores_init_fwd_deg"><code class="docutils literal notranslate"><span class="pre">SingleBNBTrader.z_scores_init_fwd_deg</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Prob_Profita contributors.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

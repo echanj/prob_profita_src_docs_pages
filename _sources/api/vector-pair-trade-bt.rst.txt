@@ -1,0 +1,78 @@
+VectorPairTradeBT
+=================
+
+.. currentmodule:: Pairs_factor_algo_class
+
+Pair-trading screener and backtest engine. The instance is configured with a
+price DataFrame and screening, signal, and optimization options. Its
+``positionsTable`` stores the generated portfolio positions.
+
+.. autoclass:: VectorPairTradeBT
+   :no-members:
+
+Attributes
+----------
+
+.. py:attribute:: VectorPairTradeBT.df
+
+   Input price matrix indexed by date, with one column per instrument.
+
+.. py:attribute:: VectorPairTradeBT.dailyret
+
+   Fractional returns calculated from ``df``.
+
+.. py:attribute:: VectorPairTradeBT.R
+
+   Preprocessed historical return block used for screening and factor modeling.
+
+.. py:attribute:: VectorPairTradeBT.best_res
+
+   Selected pair strategies and their screening or backtest metrics.
+
+.. py:attribute:: VectorPairTradeBT.positionsTable
+
+   Position matrix for the input dates and instruments.
+
+.. py:attribute:: VectorPairTradeBT.kelly_table
+
+   Pair allocation scaling factors, including covariance- or sign-based
+   adjustments when enabled.
+
+Methods
+-------
+
+.. py:method:: VectorPairTradeBT.get_profit_metrics_from_pair_list(self, pair_list, offset_index=0, use_factor_model_for_signal=True, use_ratios=False, do_grid_search=False, opt_entry_exit=False, update_hedge_ratio=False, verbose=False, grid_search_initial_list=False)
+
+   Calculate profit metrics for candidate pairs and collect the related PnL
+   series, signal z-scores, result table, profitable-trade counts, and selected
+   parameter sets. Optional flags control factor-model signals, ratio signals,
+   grid search, entry/exit optimization, hedge-ratio updates, and verbosity.
+
+.. autosummary::
+   :toctree: generated/vector-pair-trade-bt
+   :nosignatures:
+
+   VectorPairTradeBT.preprocess_data
+   VectorPairTradeBT.pca_transform
+   VectorPairTradeBT.train_model
+   VectorPairTradeBT.evaluate_pairs
+   VectorPairTradeBT.get_ou_params
+   VectorPairTradeBT.generate_positions
+   VectorPairTradeBT.preprocess_forward_data
+   VectorPairTradeBT.gen_kelly_factor_table
+   VectorPairTradeBT.get_hurst_from_zscore
+   VectorPairTradeBT.generate_forward_trading_signals
+   VectorPairTradeBT.evaluate_position_table
+   VectorPairTradeBT.plot
+   VectorPairTradeBT.save
+   VectorPairTradeBT.load
+   VectorPairTradeBT.get_backtest_date_info
+   VectorPairTradeBT.update_best_res_positions_using_subset
+   VectorPairTradeBT.process_model_at_timestep
+   VectorPairTradeBT.reoptimize_trading_params
+   VectorPairTradeBT.fix_ema_ratio_and_vol_adjust
+   VectorPairTradeBT.get_simulated_profit_metrics
+   VectorPairTradeBT.get_profits_per_trade
+   VectorPairTradeBT.use_classifier_get_prob_profita
+   VectorPairTradeBT.plot_prob_profita_model_coefs
+   VectorPairTradeBT.run

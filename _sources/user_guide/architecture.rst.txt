@@ -1,0 +1,14 @@
+Architecture
+============
+
+This page is a placeholder for a high-level description of the system. The
+prototype currently has three main strategy implementations:
+
+* ``Single_algo_Class.SingleBNBTrader`` for single-stock mean reversion.
+* ``Pairs_factor_algo_class.VectorPairTradeBT`` for pairs strategies.
+* ``Trend_Following_Class.TrendFollower`` for trend-following strategies.
+
+The strategy modules rely on shared functions under ``CPO_functions/`` for
+screening, signals, indicators, data handling, and backtest metrics. A fuller
+architecture guide can document the lifecycle of a run, boundaries between
+these components, and the data exchanged at each stage.

@@ -1,0 +1,6 @@
+﻿Trend\_Following\_Class.TrendFollower.run\_gs\_forward\_degradation\_tf
+=======================================================================
+
+.. currentmodule:: Trend_Following_Class
+
+.. automethod:: TrendFollower.run_gs_forward_degradation_tf

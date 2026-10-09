@@ -1,0 +1,22 @@
+User guide
+==========
+
+This section will describe how to prepare data, configure a strategy, run
+screening and backtests, and interpret the resulting metrics. It is an initial
+structure and does not yet prescribe a production workflow.
+
+Concepts and workflows
+----------------------
+
+Add practical guides here as the prototype's supported workflows become
+clearer. Suggested topics include:
+
+* Preparing input price and volume data.
+* Running single-stock, pairs, and trend-following analyses.
+* Configuring screening, optimization, and forward-signal generation.
+* Saving, inspecting, and comparing backtest results.
+
+.. toctree::
+   :maxdepth: 2
+
+   architecture

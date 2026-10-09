@@ -1,0 +1,6 @@
+﻿Single\_algo\_Class.SingleBNBTrader.plot
+========================================
+
+.. currentmodule:: Single_algo_Class
+
+.. automethod:: SingleBNBTrader.plot

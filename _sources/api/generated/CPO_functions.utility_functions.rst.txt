@@ -1,0 +1,73 @@
+﻿CPO\_functions.utility\_functions
+=================================
+
+.. automodule:: CPO_functions.utility_functions
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      backtest_proxy_data
+      backtest_single_data
+      calc_TA_indicators
+      check_feature_for_outliers
+      combine_signals_stateful
+      convert_parameter_string_to_tuple
+      do_backtesting_on_holdout_data
+      do_grid_search_OU_params
+      ema_manual
+      emv_manual
+      find_cointegrated_pairs
+      fit_OU_with_OLS
+      get_Kalman_signal_for_bt
+      get_OU_params_for_pairs_list
+      get_corr_matrix_for_symbols
+      get_crossover_signal
+      get_df_params_with_indicators
+      get_entry_exit_from_params
+      get_hedge_ratio
+      get_indicators
+      get_last_ndays
+      get_metrics_from_bt_stats_trades
+      get_opt_signal
+      get_parameter_list
+      get_peaks_on_pnl
+      get_pnl_metrics_from_btstats
+      get_position_macd
+      get_position_macd_regime_basic
+      get_position_s_score
+      get_sector_from_symbol_using_yf
+      get_sharpe_ratio
+      get_signal_for_bt
+      get_signal_for_bt_single_stock
+      get_signal_for_bt_trend_follower
+      get_spreads
+      get_spreads_multi_window
+      hurst_OLS
+      is_crossover
+      kpss_test
+      last_friday
+      last_weekday
+      load_and_cleanse_alphavantage_csv_pair
+      load_vpt_combo_set
+      load_vpt_set
+      manual_gs_for_parameter_list
+      ou_process
+      parse_trading_log
+      perform_ADF_tests
+      plot_cointegration_pvalues
+      plot_histo_comparison
+      run_backtest_using_OU_process
+      run_gs_and_eval
+      run_multi_grid_search_on_OU_process
+      summarize_null_entries
+      trading_log_summarize_and_plot
+      update_btlist_with_buy_hold_benchmarks
+      update_hurst_from_pairlist
+      update_tracking_csv
+      vectorized_backtest
+      vectorized_backtest_ratios
+      vectorized_backtest_signal
+      worker
+   

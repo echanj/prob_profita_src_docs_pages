@@ -1,0 +1,6 @@
+﻿Trend\_Following\_Class.TrendFollower.run\_gs\_and\_eval\_tf
+============================================================
+
+.. currentmodule:: Trend_Following_Class
+
+.. automethod:: TrendFollower.run_gs_and_eval_tf

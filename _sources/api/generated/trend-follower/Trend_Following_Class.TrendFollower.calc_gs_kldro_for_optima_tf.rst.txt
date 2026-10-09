@@ -1,0 +1,6 @@
+﻿Trend\_Following\_Class.TrendFollower.calc\_gs\_kldro\_for\_optima\_tf
+======================================================================
+
+.. currentmodule:: Trend_Following_Class
+
+.. automethod:: TrendFollower.calc_gs_kldro_for_optima_tf

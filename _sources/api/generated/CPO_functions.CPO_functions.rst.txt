@@ -1,0 +1,49 @@
+﻿CPO\_functions.CPO\_functions
+=============================
+
+.. automodule:: CPO_functions.CPO_functions
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      backtest_proxy_data
+      calc_TA_indicators
+      do_backtesting_on_holdout_data
+      do_grid_search_OU_params
+      ema_manual
+      emv_manual
+      find_cointegrated_pairs
+      fit_MarkovModel
+      fit_OU_with_OLS
+      get_Kalman_signal_for_bt
+      get_OU_params_for_pairs_list
+      get_crossover_signal
+      get_df_params_with_indicators
+      get_hedge_ratio
+      get_indicators
+      get_last_ndays
+      get_metrics_from_bt_stats_trades
+      get_opt_signal
+      get_peaks_on_pnl
+      get_pnl_metrics_from_btstats
+      get_position_s_score
+      get_sharpe_ratio
+      get_signal_for_bt
+      get_spreads
+      get_spreads_multi_window
+      get_volatility_adjustment
+      hurst_OLS
+      is_crossover
+      kpss_test
+      load_and_cleanse_alphavantage_csv_pair
+      ou_process
+      plot_cointegration_pvalues
+      run_backtest_using_OU_process
+      run_multi_grid_search_on_OU_process
+      vectorized_backtest
+      vectorized_backtest_ratios
+      vectorized_backtest_signal
+      worker
+   

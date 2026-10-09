@@ -1,0 +1,31 @@
+﻿Pairs\_factor\_algo\_class
+==========================
+
+.. automodule:: Pairs_factor_algo_class
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      backtest_pair_data
+      calculate_advanced_pair_score
+      convert_if_array
+      convert_parameter_array_to_list
+      convert_parameter_string_to_tuple
+      filter_best_n_from_pair_list_results
+      filter_penultimate_pairs
+      find_cointegrated_pairs_from_factors
+      gen_custom_backtest
+      get_covariance_weights
+      get_parameter_list
+      get_subset_ASX_data_from_best_res
+      plot_time_series_subplots
+      use_pc1_ratio_for_screening
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      VectorPairTradeBT
+   

@@ -1,0 +1,6 @@
+﻿Pairs\_factor\_algo\_class.VectorPairTradeBT.get\_hurst\_from\_zscore
+=====================================================================
+
+.. currentmodule:: Pairs_factor_algo_class
+
+.. automethod:: VectorPairTradeBT.get_hurst_from_zscore

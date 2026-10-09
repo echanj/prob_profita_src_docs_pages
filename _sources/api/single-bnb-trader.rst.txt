@@ -1,0 +1,52 @@
+SingleBNBTrader
+===============
+
+.. currentmodule:: Single_algo_Class
+
+.. autoclass:: SingleBNBTrader
+   :no-members:
+   :show-inheritance:
+
+Methods
+-------
+
+.. autosummary::
+   :toctree: generated/single-bnb-trader
+   :nosignatures:
+
+   SingleBNBTrader.preprocess_data
+   SingleBNBTrader.preprocess_volumes
+   SingleBNBTrader.pca_transform
+   SingleBNBTrader.train_model
+   SingleBNBTrader.evaluate_instruments
+   SingleBNBTrader.generate_positions
+   SingleBNBTrader.preprocess_forward_data
+   SingleBNBTrader.generate_Buy_Hold_benchmark
+   SingleBNBTrader.run_gs_and_eval
+   SingleBNBTrader.run_gs_forward_degradation
+   SingleBNBTrader.run_init_forward_degradation
+   SingleBNBTrader.gen_kelly_factor_table
+   SingleBNBTrader.update_zscore_metrics
+   SingleBNBTrader.get_forward_date_ranges
+   SingleBNBTrader.generate_forward_trading_signals
+   SingleBNBTrader.evaluate_forward_trading_signals
+   SingleBNBTrader.evaluate_position_table
+   SingleBNBTrader.evaluate_extended_portfolio_metrics
+   SingleBNBTrader.plot
+   SingleBNBTrader.save
+   SingleBNBTrader.load
+   SingleBNBTrader.get_backtest_date_info
+   SingleBNBTrader.update_best_res_positions_using_subset
+   SingleBNBTrader.process_model_at_timestep
+   SingleBNBTrader.reoptimize_trading_params
+   SingleBNBTrader.get_simulated_profit_metrics
+   SingleBNBTrader.get_profits_per_trade
+   SingleBNBTrader.use_classifier_get_prob_profita
+   SingleBNBTrader.plot_prob_profita_model_coefs
+   SingleBNBTrader.print_some_trader_settings
+   SingleBNBTrader.diversify_best_res
+   SingleBNBTrader.aggregate_deg_stats
+   SingleBNBTrader.degradation_analysis_and_filter
+   SingleBNBTrader.calc_gs_kldro_for_optima
+   SingleBNBTrader.plot_grid_search_surfaces
+   SingleBNBTrader.run

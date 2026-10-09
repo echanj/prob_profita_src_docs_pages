@@ -1,0 +1,6 @@
+﻿Single\_algo\_Class.SingleBNBTrader.update\_best\_res\_positions\_using\_subset
+===============================================================================
+
+.. currentmodule:: Single_algo_Class
+
+.. automethod:: SingleBNBTrader.update_best_res_positions_using_subset

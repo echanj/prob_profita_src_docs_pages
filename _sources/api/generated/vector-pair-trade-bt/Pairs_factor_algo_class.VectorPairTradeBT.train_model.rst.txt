@@ -1,0 +1,6 @@
+﻿Pairs\_factor\_algo\_class.VectorPairTradeBT.train\_model
+=========================================================
+
+.. currentmodule:: Pairs_factor_algo_class
+
+.. automethod:: VectorPairTradeBT.train_model

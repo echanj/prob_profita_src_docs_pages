@@ -1,0 +1,6 @@
+﻿Pairs\_factor\_algo\_class.VectorPairTradeBT.fix\_ema\_ratio\_and\_vol\_adjust
+==============================================================================
+
+.. currentmodule:: Pairs_factor_algo_class
+
+.. automethod:: VectorPairTradeBT.fix_ema_ratio_and_vol_adjust

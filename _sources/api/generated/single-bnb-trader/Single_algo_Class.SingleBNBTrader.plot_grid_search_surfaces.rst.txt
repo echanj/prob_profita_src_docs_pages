@@ -1,0 +1,6 @@
+﻿Single\_algo\_Class.SingleBNBTrader.plot\_grid\_search\_surfaces
+================================================================
+
+.. currentmodule:: Single_algo_Class
+
+.. automethod:: SingleBNBTrader.plot_grid_search_surfaces

@@ -1,0 +1,6 @@
+﻿Single\_algo\_Class.SingleBNBTrader.evaluate\_extended\_portfolio\_metrics
+==========================================================================
+
+.. currentmodule:: Single_algo_Class
+
+.. automethod:: SingleBNBTrader.evaluate_extended_portfolio_metrics

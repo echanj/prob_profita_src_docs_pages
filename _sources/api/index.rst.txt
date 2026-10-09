@@ -1,0 +1,34 @@
+API reference
+=============
+
+This reference covers the main strategy classes and the shared modules used
+for screening, signal generation, indicators, and backtest metrics. Class
+attributes and method documentation are drawn from the Python source where
+available.
+
+Strategy classes
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   single-bnb-trader
+   vector-pair-trade-bt
+   trend-follower
+
+Shared function modules
+-----------------------
+
+The following module pages expose top-level functions in the strategy and
+shared helper modules.
+
+.. autosummary::
+   :toctree: generated
+
+   Single_algo_Class
+   Pairs_factor_algo_class
+   Trend_Following_Class
+   CPO_functions.CPO_functions
+   CPO_functions.utility_functions
+   CPO_functions.indicator_functions
+   CPO_functions.extended_backtest_functions

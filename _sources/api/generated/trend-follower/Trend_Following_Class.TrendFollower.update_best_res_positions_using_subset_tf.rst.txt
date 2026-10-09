@@ -1,0 +1,6 @@
+﻿Trend\_Following\_Class.TrendFollower.update\_best\_res\_positions\_using\_subset\_tf
+=====================================================================================
+
+.. currentmodule:: Trend_Following_Class
+
+.. automethod:: TrendFollower.update_best_res_positions_using_subset_tf

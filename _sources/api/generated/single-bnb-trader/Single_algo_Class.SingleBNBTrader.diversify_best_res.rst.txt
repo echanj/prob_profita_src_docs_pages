@@ -1,0 +1,6 @@
+﻿Single\_algo\_Class.SingleBNBTrader.diversify\_best\_res
+========================================================
+
+.. currentmodule:: Single_algo_Class
+
+.. automethod:: SingleBNBTrader.diversify_best_res

@@ -1,0 +1,22 @@
+﻿Trend\_Following\_Class
+=======================
+
+.. automodule:: Trend_Following_Class
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      calculate_advanced_score
+      filter_best_n_from_pair_list_results
+      get_parameter_list
+      perform_MSM_and_metrics
+      plot_extra_TA_subplots
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      TrendFollower
+   

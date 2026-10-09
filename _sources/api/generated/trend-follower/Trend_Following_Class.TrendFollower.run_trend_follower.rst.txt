@@ -1,0 +1,6 @@
+﻿Trend\_Following\_Class.TrendFollower.run\_trend\_follower
+==========================================================
+
+.. currentmodule:: Trend_Following_Class
+
+.. automethod:: TrendFollower.run_trend_follower

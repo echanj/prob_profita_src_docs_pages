@@ -1,0 +1,16 @@
+﻿CPO\_functions.extended\_backtest\_functions
+============================================
+
+.. automodule:: CPO_functions.extended_backtest_functions
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      compare_scalers
+      compute_dro_surface
+      extended_backtest_metrics
+      extended_backtest_metrics_single_asset
+      extended_portfolio_metrics
+   

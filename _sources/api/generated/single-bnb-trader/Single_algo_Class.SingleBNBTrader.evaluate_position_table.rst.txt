@@ -1,0 +1,6 @@
+﻿Single\_algo\_Class.SingleBNBTrader.evaluate\_position\_table
+=============================================================
+
+.. currentmodule:: Single_algo_Class
+
+.. automethod:: SingleBNBTrader.evaluate_position_table

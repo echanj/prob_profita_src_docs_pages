@@ -1,0 +1,6 @@
+﻿Trend\_Following\_Class.TrendFollower.generate\_forward\_trading\_signals\_tf
+=============================================================================
+
+.. currentmodule:: Trend_Following_Class
+
+.. automethod:: TrendFollower.generate_forward_trading_signals_tf

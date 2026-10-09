@@ -1,0 +1,6 @@
+﻿Single\_algo\_Class.SingleBNBTrader.run\_init\_forward\_degradation
+===================================================================
+
+.. currentmodule:: Single_algo_Class
+
+.. automethod:: SingleBNBTrader.run_init_forward_degradation
